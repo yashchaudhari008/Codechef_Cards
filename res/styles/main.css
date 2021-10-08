@@ -1,6 +1,6 @@
 :root {
     /*Fundamental Properties*/
-    --borderRadius : 10px;
+    --borderRadius : 4px;
 
     /*Colors*/
     --appMain: rgb(0,0,0);
@@ -87,17 +87,17 @@ footer {
 
     align-self: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 #input_bar input[type=text] {
-    width: 100px;
+    width: 200px;
     padding: 8px;
     border: 2px solid var(--appBackground);
     border-radius: var(--borderRadius);
-
+    outline: none;
     background-color: var(--appSurface);
     color: white;
-
+    border: 2px solid var(--primary);
     font-family: monospace;
 }
 #input_bar input[type=text]::placeholder {
@@ -105,18 +105,17 @@ footer {
 }
 #input_bar * {
     margin: 2px;
-
-    font-size: 15px;
+    font-size: 22px;
 }
 #input_bar button {
-    padding: 8px;
-    padding-inline: 10px;
+    padding: 10px 35px;
+    /* padding-inline: 10px; */
     border: 0px;
     border-radius: var(--borderRadius);
 
     background-color: var(--primary);
     color: var(--primaryText);
-
+    cursor: pointer;
     font-weight: bold;
 }
 .card {
@@ -198,3 +197,33 @@ footer {
 
     background: var(--primary);
 }
+
+
+/* Toggle button css */
+
+.toggle-div{
+    width: 100%;
+    /* height: 50px; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 250px;
+    margin-bottom: 10px;
+}
+.toggle-div .toggle-btn #toggle-icon{
+    font-size: 25px;
+    padding: 5px 10px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+}
+#hidden-div{
+    width: 100%;
+    height: 122px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+/* End of toggle button css */

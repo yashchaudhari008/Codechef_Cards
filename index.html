@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="res/styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <script src="res/scripts/main.js" defer></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -16,13 +16,21 @@
         <a href="https://github.com/yashchaudhari008/Codechef_Cards"><img id="github-logo" src="res/icons/github-logo.png"></img></a>
     </header>
     <div id="input_bar">
-        <p>Username: <input id="username" placeholder="username" type="text"></input> </p> 
+        <div class="toggle-div">
+            <button id="toggle-btn" onclick="toggle()"><i class="fas fa-chevron-up" id="toggle-icon" ></i></button>
+        </div>
+        <div id="hidden-div">
+            <p>Username: <input id="username" placeholder="username" type="text"></input> </p>
+            <button onclick="addUser()">Add</button>
+        </div>
+         
         
-        <button onclick="addUser()">Add</button>
     </div>
     <div id="root"></div>
     <footer>
         © Copyright 2021-22. Made with &#10084; by Yash Chaudhari.
     </footer>
+
+    <script src="res/scripts/main.js"></script>
 </body>
 </html>

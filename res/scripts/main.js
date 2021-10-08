@@ -1,4 +1,8 @@
 let rootNode = document.getElementById('root');
+let toggle_btn = document.querySelector('.toogle-btn');
+let toggle_icon = document.getElementById('toggle-icon');
+let hidden_div = document.getElementById('hidden-div');
+let input_bar = document.getElementById('input_bar')
 let users = new Set();
 let loadingFinished = false;
 
@@ -105,4 +109,21 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.appendChild(e_rating);
     root.appendChild(div_others);
     rootNode.appendChild(root);
+}
+
+function toggle()
+{
+    console.log('sdafd')
+    if(toggle_icon.classList.contains('fa-chevron-up'))
+    {
+        toggle_icon.classList.remove('fa-chevron-up');
+        toggle_icon.classList.add('fa-chevron-down');
+        hidden_div.style.display = 'none';
+    }
+    else
+    {
+        toggle_icon.classList.remove('fa-chevron-down');
+        toggle_icon.classList.add('fa-chevron-up');
+        hidden_div.style.display = 'flex';
+    }
 }
