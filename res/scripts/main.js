@@ -24,6 +24,7 @@ function addUser() {
 window.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         document.querySelector("#menu-content button").click();
+        toggleMenu();
     }
 });
 
