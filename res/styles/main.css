@@ -202,7 +202,7 @@ footer {
 
 /* Toggle button css */
 
-.toggle-div{
+.menu{
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -210,9 +210,7 @@ footer {
     font-size: 250px;
     margin-bottom: 10px;
 }
-.toggle-div .toggle-btn #toggle-icon{
-    font-size: 25px;
-    padding: 5px 10px;
+#toggle-icon{
     background-color: var(--primary);
     color: var(--secondary);
     border-radius: var(--borderRadius);
@@ -226,4 +224,5 @@ footer {
     align-items: center;
     justify-content: space-around;
 }
+
 /* End of toggle button css */

@@ -1,10 +1,10 @@
 let rootNode = document.getElementById('root');
-let toggle_btn = document.querySelector('.toogle-btn');
+let users = new Set();
+let loadingFinished = false;
+
 let toggle_icon = document.getElementById('toggle-icon');
 let hidden_div = document.getElementById('hidden-div');
 let input_bar = document.getElementById('input_bar')
-let users = new Set();
-let loadingFinished = false;
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
@@ -56,8 +56,9 @@ function getDetails(username){
             storeData(users);
         }
     )
-    .catch((error) => console.log("Cannot Fetch Data From API, ",error))
+    .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
+
 function createCard({name, username, rating, highestRating, stars, countryRank, globalRank}){
 
     const root = document.createElement("div");
@@ -108,12 +109,23 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.appendChild(div_name);
     root.appendChild(e_rating);
     root.appendChild(div_others);
+    
+    // Sorting happens here
+    for (let currentNode of rootNode.childNodes){
+        const ratingElement = currentNode.querySelector(".rating");
+        const currentNodeRating = parseInt(ratingElement.innerHTML.split(" ")[1]);
+        if (rating >= currentNodeRating){
+            rootNode.insertBefore(root,currentNode);
+            return;
+        }
+    }
+    // If we get here, all other nodes have lower values or it is the first node
     rootNode.appendChild(root);
 }
 
-function toggle()
+
+function toggleMenu()
 {
-    console.log('sdafd')
     if(toggle_icon.classList.contains('fa-chevron-up'))
     {
         toggle_icon.classList.remove('fa-chevron-up');
