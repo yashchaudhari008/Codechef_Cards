@@ -207,6 +207,9 @@ footer {
 
     font-weight: bold;
 }
+.card .delete-button:hover{
+    cursor: pointer;
+}
 
 /* Width */
 ::-webkit-scrollbar {

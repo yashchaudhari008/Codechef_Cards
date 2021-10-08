@@ -20,6 +20,13 @@ function addUser() {
     getDetails(username);
     toggleMenu();
 }
+// Trigger add using Enter key
+window.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        document.querySelector("#menu-content button").click();
+    }
+});
+
 
 function deleteUser() {
     const card = this.parentElement.parentElement;
