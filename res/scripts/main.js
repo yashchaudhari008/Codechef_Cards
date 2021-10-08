@@ -108,8 +108,8 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     
     // Sorting happens here
     for (let currentNode of rootNode.childNodes){
-        console.log(currentNode.innerText);
-        const currentNodeRating = parseInt(currentNode.innerText.split("Rating: ")[1].split(" ")[0],10);
+        const ratingElement = currentNode.querySelector(".rating");
+        const currentNodeRating = parseInt(ratingElement.innerHTML.split(" ")[1]);
         if (rating >= currentNodeRating){
             rootNode.insertBefore(root,currentNode);
             return;
