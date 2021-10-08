@@ -18,12 +18,12 @@ function addUser() {
     document.getElementById('username').value = '';
     if (username === '') return;
     getDetails(username);
+    toggleMenu();
 }
 // Trigger add using Enter key
 window.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         document.querySelector("#menu-content button").click();
-        toggleMenu();
     }
 });
 
