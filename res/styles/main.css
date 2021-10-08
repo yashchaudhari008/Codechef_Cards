@@ -52,6 +52,10 @@ header #appName {
 }
 header #github-logo {
     width: 25px;
+
+    color: var(--appText);
+
+    font-size: 25px;
 }
 footer {
     padding: 10px;
