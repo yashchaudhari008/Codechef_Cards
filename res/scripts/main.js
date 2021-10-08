@@ -54,6 +54,7 @@ function getDetails(username){
     )
     .catch((error) => console.log("Cannot Fetch Data From API, ",error))
 }
+
 function createCard({name, username, rating, highestRating, stars, countryRank, globalRank}){
 
     const root = document.createElement("div");
@@ -104,5 +105,20 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.appendChild(div_name);
     root.appendChild(e_rating);
     root.appendChild(div_others);
-    rootNode.appendChild(root);
+    
+    // Sorting happens here
+    console.log(rootNode.childNodes);
+    for (let curNode of rootNode.childNodes){
+        const curNodeRating = parseInt(curNode.innerText.split("Rating: ")[1].split(" ")[0],10);
+        if (highestRating >= curNodeRating){
+            rootNode.insertBefore(root,curNode);
+            return;
+        }
+    }
+    // If we get here, all other nodes have lower values
+    if (rootNode.childElementCount == 0){
+        rootNode.appendChild(root);
+    }else{
+        rootNode.insertAdjacentElement("afterend",rootNode.lastChild);
+    }
 }
