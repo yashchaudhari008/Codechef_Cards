@@ -2,6 +2,10 @@ let rootNode = document.getElementById('root');
 let users = new Set();
 let loadingFinished = false;
 
+let toggle_icon = document.getElementById('toggle-icon');
+let hidden_div = document.getElementById('hidden-div');
+let input_bar = document.getElementById('input_bar')
+
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
     for (let user of users){
@@ -117,4 +121,21 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     }
     // If we get here, all other nodes have lower values or it is the first node
     rootNode.appendChild(root);
+}
+
+
+function toggleMenu()
+{
+    if(toggle_icon.classList.contains('fa-chevron-up'))
+    {
+        toggle_icon.classList.remove('fa-chevron-up');
+        toggle_icon.classList.add('fa-chevron-down');
+        hidden_div.style.display = 'none';
+    }
+    else
+    {
+        toggle_icon.classList.remove('fa-chevron-down');
+        toggle_icon.classList.add('fa-chevron-up');
+        hidden_div.style.display = 'flex';
+    }
 }

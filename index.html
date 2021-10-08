@@ -16,13 +16,19 @@
         <a href="https://github.com/yashchaudhari008/Codechef_Cards"><img id="github-logo" src="res/icons/github-logo.png"></img></a>
     </header>
     <div id="input_bar">
-        <p>Username: <input id="username" placeholder="username" type="text"></input> </p> 
-        
-        <button onclick="addUser()">Add</button>
+        <div class="menu">
+            <button id="menu-toggle-menu" onclick="toggleMenu()"><i class="fas fa-chevron-up" id="toggle-icon" ></i></button>
+        </div>
+        <div id="hidden-div">
+            <p>Username: <input id="username" placeholder="username" type="text"></input> </p>
+            <button onclick="addUser()">Add</button>
+        </div>
+         
     </div>
     <div id="root"></div>
     <footer>
         © Copyright 2021-22. Made with &#10084; by Yash Chaudhari.
     </footer>
+
 </body>
 </html>
