@@ -1,0 +1,200 @@
+:root {
+    /*Fundamental Properties*/
+    --borderRadius : 10px;
+
+    /*Colors*/
+    --appMain: rgb(0,0,0);
+    --appBackground: rgb(25, 25, 25);
+    --appSurface: rgba(255, 255, 255, 0.1);
+    --appText: white;
+    --appSurfaceText: rgba(255, 255, 255, 0.7);
+
+    --primary: rgb(187, 134, 252);
+    --primaryText: rgba(0,0,0,0.7);
+    --secondary: rgb(79, 57, 107);
+    --secondaryText: rgba(255, 255, 255, 0.9);
+
+}
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    font-family: monospace;
+}
+body {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--appBackground);
+    color: var(--appText);
+}
+header {
+    padding: 10px;
+    margin: 0px;
+    display: flex;
+
+    background-color: var(--appMain);
+    color: var(--secondaryText);
+
+    align-items: center;
+}
+header #appName {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 10px;
+
+    flex: 1;
+
+    font-size: 20px;
+    font-weight: 1000;
+}
+header #github-logo {
+    width: 25px;
+}
+footer {
+    padding: 10px;
+
+    background-color: var(--appMain);
+    color: var(--secondaryText);
+
+    text-align: center;
+}
+#root {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: scroll;
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+}
+#input_bar {
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--secondary);
+    color: var(--secondaryText);
+
+    display: flex;
+    flex-direction: column;
+
+    align-self: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#input_bar input[type=text] {
+    width: 100px;
+    padding: 8px;
+    border: 2px solid var(--appBackground);
+    border-radius: var(--borderRadius);
+
+    background-color: var(--appSurface);
+    color: white;
+
+    font-family: monospace;
+}
+#input_bar input[type=text]::placeholder {
+    color: var(--primaryText);
+}
+#input_bar * {
+    margin: 2px;
+
+    font-size: 15px;
+}
+#input_bar button {
+    padding: 8px;
+    padding-inline: 10px;
+    border: 0px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--primary);
+    color: var(--primaryText);
+
+    font-weight: bold;
+}
+.card {
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--appSurface);
+    color: var(--appSurfaceText);
+
+    text-align: center;
+}
+.card .card-header {
+    margin: 5px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--primary);
+    color: var(--primaryText);
+}
+.card .card-header .name {
+    padding-top: 5px;
+    padding-inline: 10px;
+    margin: 0px;
+
+    font-family: 'Raleway';
+    font-size: 25px;
+}
+.card .card-header .username {
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin: 0px;
+
+    font-family: 'Montserrat';
+    font-size: 15px;
+}
+.card .rating {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-inline: 10px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--secondary);
+
+    font-size: 15px;
+}
+.card .others {
+    padding: 5px;
+    margin-inline: 15px;
+    border-radius: var(--borderRadius);
+
+    background-color: rgba(255, 255, 255, 0.1);
+
+    font-size: 12px;
+}
+.card .delete-button {
+    /* margin: 5px; */
+    padding: 8px;
+    padding-inline: 10px;
+    border: 0px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--primary);
+    color: var(--primaryText);
+
+    font-weight: bold;
+}
+
+/* Width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
+    background: var(--primary);
+}
