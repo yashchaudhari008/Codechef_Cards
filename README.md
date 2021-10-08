@@ -1,9 +1,11 @@
 # Codechef Cards
 
-A WebApp to check friends rating and other details on [codechef.](https://www.codechef.com/)
-Just add username and track your friends progress!!
+A WebApp to check friend's [codechef](https://www.codechef.com/) rating and other details. 
+- Just add username and track your friends progress!!
+- Press delete to remove friend
+- Make sure to ⭐ the repo and share with your friends.
 
-Make sure to ⭐ the repo.
+> This app is using [this](https://github.com/Abhijeet-AR/Competitive_Programming_Score_API) API by [Abhijeet-AR](https://github.com/Abhijeet-AR) for fetching user details.
 
 ## Deployed App
  App is live on github-pages and is available at <https://yashchaudhari008.github.io/Codechef_Cards/>.
