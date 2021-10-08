@@ -18,7 +18,6 @@ function addUser() {
     document.getElementById('username').value = '';
     if (username === '') return;
     getDetails(username);
-    toggleMenu();
 }
 // Trigger add using Enter key
 window.addEventListener('keypress', function (e) {
