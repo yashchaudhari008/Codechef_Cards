@@ -31,7 +31,6 @@ function storeData(data) {
 }
 
 function getDetails(username){
-    username = username.toLowerCase();
     if (users.has(username) && loadingFinished) return;
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
     .then( function (result) { return result.json() } )
