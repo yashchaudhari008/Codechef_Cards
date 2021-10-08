@@ -21,6 +21,13 @@ function addUser() {
     getDetails(username);
 }
 
+// Trigger add using Enter key
+window.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        document.querySelector("#hidden-div button").click();
+    }
+});
+
 function deleteUser() {
     const card = this.parentElement.parentElement;
     const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
@@ -139,3 +146,4 @@ function toggleMenu()
         hidden_div.style.display = 'flex';
     }
 }
+
