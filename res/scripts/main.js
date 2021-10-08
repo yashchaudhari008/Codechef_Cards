@@ -106,18 +106,15 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.appendChild(div_others);
     
     // Sorting happens here
+    console.log({rating});
     console.log(rootNode.childNodes);
     for (let curNode of rootNode.childNodes){
         const curNodeRating = parseInt(curNode.innerText.split("Rating: ")[1].split(" ")[0],10);
-        if (highestRating >= curNodeRating){
+        if (rating >= curNodeRating){
             rootNode.insertBefore(root,curNode);
             return;
         }
     }
-    // If we get here, all other nodes have lower values
-    if (rootNode.childElementCount == 0){
-        rootNode.appendChild(root);
-    }else{
-        rootNode.insertAdjacentElement("afterend",rootNode.lastChild);
-    }
+    // If we get here, all other nodes have lower values or it is the first node
+    rootNode.appendChild(root);
 }
