@@ -13,6 +13,7 @@
     --primaryText: rgba(0,0,0,0.7);
     --secondary: rgb(79, 57, 107);
     --secondaryText: rgba(255, 255, 255, 0.9);
+    --brighten: rgba(255, 255, 255, 0.1);
 
 }
 html, body {
@@ -72,24 +73,25 @@ footer {
 
     scroll-behavior: smooth;
 }
-#input_bar {
+#menu-bar {
     padding: 10px;
     margin: 5px;
     width: 80%;
     max-width: 400px;
     border-radius: var(--borderRadius);
 
-    background-color: var(--secondary);
-    color: var(--secondaryText);
+    background-color: var(--appSurface);
+    color: var(--appSurfaceText);
 
     display: flex;
     flex-direction: column;
 
     align-self: center;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: flex-end;
+
+    font-size: 15px;
 }
-#input_bar input[type=text] {
+#menu-bar #username {
     width: 100px;
     padding: 8px;
     border: 2px solid var(--appBackground);
@@ -100,15 +102,13 @@ footer {
 
     font-family: monospace;
 }
-#input_bar input[type=text]::placeholder {
+#menu-bar #username::placeholder {
     color: var(--primaryText);
 }
-#input_bar * {
-    margin: 2px;
 
-    font-size: 15px;
-}
-#input_bar button {
+#menu-bar button {
+    width: min-content;
+    margin: 0px;
     padding: 8px;
     padding-inline: 10px;
     border: 0px;
@@ -116,9 +116,29 @@ footer {
 
     background-color: var(--primary);
     color: var(--primaryText);
+    
     cursor: pointer;
     font-weight: bold;
 }
+#menu-content{
+    margin: 5px;
+    padding: 10px;
+    border-radius: var(--borderRadius);
+
+    background-color: var(--brighten);
+
+    display: flex;
+    flex-direction: column;
+
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide {
+    display: none !important;
+    visibility: hidden;
+} 
 .card {
     padding: 10px;
     margin: 5px;
@@ -156,21 +176,22 @@ footer {
 }
 .card .rating {
     padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     margin-inline: 10px;
     border-radius: var(--borderRadius);
 
     background-color: var(--secondary);
+    color: var(--secondaryText);
 
     font-size: 15px;
 }
 .card .others {
-    padding: 5px;
+    padding: 10px;
+    padding-top: 5px;
     margin-inline: 15px;
     border-radius: var(--borderRadius);
 
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--brighten);
 
     font-size: 12px;
 }
@@ -198,31 +219,3 @@ footer {
 
     background: var(--primary);
 }
-
-
-/* Toggle button css */
-
-.menu{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    font-size: 250px;
-    margin-bottom: 10px;
-}
-#toggle-icon{
-    background-color: var(--primary);
-    color: var(--secondary);
-    border-radius: var(--borderRadius);
-    cursor: pointer;
-}
-#hidden-div{
-    width: 100%;
-    height: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-/* End of toggle button css */

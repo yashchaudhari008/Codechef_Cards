@@ -15,11 +15,9 @@
         <p id="appName">Codechef Cards</p>
         <a href="https://github.com/yashchaudhari008/Codechef_Cards"><img id="github-logo" src="res/icons/github-logo.png"></img></a>
     </header>
-    <div id="input_bar">
-        <div class="menu">
-            <button id="menu-toggle-menu" onclick="toggleMenu()"><i class="fas fa-chevron-up" id="toggle-icon" ></i></button>
-        </div>
-        <div id="hidden-div">
+    <div id="menu-bar">
+       <button onclick="toggleMenu()"><i id="toggle-icon" class="fas fa-chevron-down"></i></button>
+        <div id="menu-content" class="hide">
             <p>Username: <input id="username" placeholder="username" type="text"></input> </p>
             <button onclick="addUser()">Add</button>
         </div>

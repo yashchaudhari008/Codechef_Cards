@@ -2,12 +2,11 @@ let rootNode = document.getElementById('root');
 let users = new Set();
 let loadingFinished = false;
 
-let toggle_icon = document.getElementById('toggle-icon');
-let hidden_div = document.getElementById('hidden-div');
-let input_bar = document.getElementById('input_bar')
+let menuRoot = document.getElementById('menu-bar');
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
+    if (users.size === 0 ) {toggleMenu();}
     for (let user of users){
             getDetails(user);
     }
@@ -19,6 +18,7 @@ function addUser() {
     document.getElementById('username').value = '';
     if (username === '') return;
     getDetails(username);
+    toggleMenu();
 }
 
 function deleteUser() {
@@ -126,16 +126,14 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
 
 function toggleMenu()
 {
-    if(toggle_icon.classList.contains('fa-chevron-up'))
-    {
+    const toggle_icon = menuRoot.children[0].getElementsByTagName('i')[0];
+    const menu_content = menuRoot.children[1];
+    if(toggle_icon.classList.contains('fa-chevron-up')) {
         toggle_icon.classList.remove('fa-chevron-up');
         toggle_icon.classList.add('fa-chevron-down');
-        hidden_div.style.display = 'none';
-    }
-    else
-    {
+    } else {
         toggle_icon.classList.remove('fa-chevron-down');
-        toggle_icon.classList.add('fa-chevron-up');
-        hidden_div.style.display = 'flex';
+        toggle_icon.classList.add('fa-chevron-up');   
     }
+    menu_content.classList.toggle('hide');
 }
