@@ -52,6 +52,10 @@ function getDetails(username){
     .then(
         function (data) {
             // console.log(data);
+            if(data.status === 'Failed' && data.details === 'Invalid username'){
+                alert(`${username} is an invalid username.`);
+                return;
+            }
             const information = {
                 name: data.user_details.name,
                 username: data.user_details.username,
