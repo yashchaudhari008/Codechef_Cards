@@ -17,8 +17,8 @@ window.onload = () => {
 function addUser() {
     let username = document.getElementById('username').value;
     document.getElementById('username').value = '';
-    if (username === '') return;
-    getDetails(username);
+    if (username === '') alert("Please, Enter a Username");
+    else getDetails(username);
 }
 
 function deleteUser() {
@@ -27,6 +27,7 @@ function deleteUser() {
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
+     localStorage.removeItem(username);
     
 }
 
@@ -36,12 +37,15 @@ function storeData(data) {
 
 function getDetails(username){
     username = username.toLowerCase();
-    if (users.has(username) && loadingFinished) return;
+    if (users.has(username) && loadingFinished) {
+        alert("User already exists");
+        return;
+    } 
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
     .then( function (result) { return result.json() } )
     .then(
         function (data) {
-            // console.log(data);
+             //console.log(data);
             const information = {
                 name: data.user_details.name,
                 username: data.user_details.username,
@@ -56,7 +60,7 @@ function getDetails(username){
             storeData(users);
         }
     )
-    .catch((error) => console.error("Cannot Fetch Data From API, ",error))
+    .catch((error) => alert("Enter a valid Username ",error))
 }
 
 function createCard({name, username, rating, highestRating, stars, countryRank, globalRank}){
