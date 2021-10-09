@@ -152,13 +152,14 @@ footer {
 
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
-    position: relative;
     text-align: center;
 }
 .card .card-header {
     margin: 5px;
+    padding-left: 2em;
+    padding-right: 2em;
+    position: relative;
     border-radius: var(--borderRadius);
-
     background-color: var(--primary);
     color: var(--primaryText);
 }
@@ -199,35 +200,18 @@ footer {
 
     font-size: 12px;
 }
-.card .delete-button {
-    /* margin: 5px; */
-    padding: 8px;
-    padding-inline: 10px;
-    border: 0px;
-    border-radius: var(--borderRadius);
-
-    background-color: var(--primary);
-    color: var(--primaryText);
-
-    font-weight: bold;
-}
-.card .delete-button:hover, .card .delete-cross:hover {
-    cursor: pointer;
-}
-
 .card .delete-cross {
     background: transparent;
-    color: #bb86fc;
+    color: var(--secondaryText);
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 0;
+    transform: translateY(-50%);
     border: none;
     font-size: 2em;
 }
 .card .delete-cross:hover {
-    color: #fff;
-    background-color: #b8f;
-    border-radius: .25em;
+    cursor: pointer;
 }
 
 /* Width */

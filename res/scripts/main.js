@@ -117,7 +117,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
-    div_others.appendChild(e_delete);
+    div_name.appendChild(e_delete);
 
 
     root.appendChild(div_name);
