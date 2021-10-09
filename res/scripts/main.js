@@ -43,12 +43,19 @@ function storeData(data) {
 
 function getDetails(username){
     username = username.toLowerCase();
-    if (users.has(username) && loadingFinished) return;
+    if (users.has(username) && loadingFinished) {
+        alert(`Username "${username}" already exists.`);
+        return;
+    }
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
     .then( function (result) { return result.json() } )
     .then(
         function (data) {
             // console.log(data);
+            if(data.status === 'Failed' && data.details === 'Invalid username'){
+                alert(`"${username}" is an invalid username.`);
+                return;
+            }
             const information = {
                 name: data.user_details.name,
                 username: data.user_details.username,
