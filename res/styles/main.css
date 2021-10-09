@@ -200,15 +200,27 @@ footer {
 
     font-size: 12px;
 }
-.card .delete-cross {
+.card.minimized .rating, .card.minimized .others {
+    display: none;
+}
+.card .delete-cross, .card .minimize {
     background: transparent;
     color: var(--secondaryText);
     position: absolute;
     top: 50%;
-    right: 0;
     transform: translateY(-50%);
     border: none;
+}
+.card .minimize {
+    font-size: 1.5em;
+    left: 0;
+}
+.card.minimized .minimize {
+    transform: translateY(-50%) rotateZ(90deg);
+}
+.card .delete-cross {
     font-size: 2em;
+    right: 0;
 }
 .card .delete-cross:hover {
     cursor: pointer;

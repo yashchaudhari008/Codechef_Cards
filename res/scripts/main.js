@@ -111,13 +111,21 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
 
     const e_delete = document.createElement("button");
     e_delete.innerHTML = '&times;';
+    e_delete.setAttribute('title', 'Delete');
     e_delete.classList.add('delete-cross')
     e_delete.addEventListener('click', deleteUser);
+
+    const e_minimize = document.createElement("button");
+    e_minimize.innerHTML = '&#9650;';
+    e_minimize.setAttribute('title', 'Minimize');
+    e_minimize.classList.add('minimize')
+    e_minimize.addEventListener('click', function(){ this.parentElement.parentElement.classList.toggle('minimized'); });
 
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
     div_name.appendChild(e_delete);
+    div_name.appendChild(e_minimize);
 
 
     root.appendChild(div_name);
