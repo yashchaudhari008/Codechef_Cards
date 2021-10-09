@@ -42,7 +42,7 @@ function storeData(data) {
 }
 
 function getDetails(username){
-    username = username.toLowerCase();
+    username = username.toLowerCase().trim();
     if (users.has(username) && loadingFinished) {
         alert(`Username "${username}" already exists.`);
         return;
@@ -100,7 +100,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     div_others.classList.add("others");
     
     const e_highestRating = document.createElement("p");
-    e_highestRating.innerHTML = `Highest Rank: ${highestRating}`;
+    e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
     e_highestRating.classList.add("highest-rating");
     
     const e_globalRank = document.createElement("p");
@@ -110,8 +110,8 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
 
     const e_delete = document.createElement("button");
-    e_delete.innerHTML = 'Delete';
-    e_delete.classList.add('delete-button')
+    e_delete.innerHTML = '&times;';
+    e_delete.classList.add('delete-cross')
     e_delete.addEventListener('click', deleteUser);
 
     div_others.appendChild(e_highestRating);

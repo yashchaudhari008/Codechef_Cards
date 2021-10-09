@@ -152,7 +152,7 @@ footer {
 
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
-
+    position: relative;
     text-align: center;
 }
 .card .card-header {
@@ -211,8 +211,23 @@ footer {
 
     font-weight: bold;
 }
-.card .delete-button:hover{
+.card .delete-button:hover, .card .delete-cross:hover {
     cursor: pointer;
+}
+
+.card .delete-cross {
+    background: transparent;
+    color: #bb86fc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    font-size: 2em;
+}
+.card .delete-cross:hover {
+    color: #fff;
+    background-color: #b8f;
+    border-radius: .25em;
 }
 
 /* Width */
