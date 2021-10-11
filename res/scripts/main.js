@@ -30,7 +30,7 @@ window.addEventListener('keypress', function (e) {
 
 function deleteUser() {
     const card = this.parentElement.parentElement;
-    const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
+    const username = card.dataset.username;
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
