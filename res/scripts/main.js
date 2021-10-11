@@ -30,7 +30,7 @@ window.addEventListener('keypress', function (e) {
 
 function deleteUser() {
     const card = this.parentElement.parentElement;
-    const username = card.dataset.username;
+    const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
@@ -78,10 +78,6 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const root = document.createElement("div");
     root.classList.add("card");
 
-    // Extract username from any format, with rating or not
-    // Save to card's dataset
-    root.dataset.username = username.split(':').slice(-1)[0];
-
     const div_name = document.createElement("div"); 
     div_name.classList.add("card-header");
 
@@ -90,7 +86,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_name.classList.add("name");
 
     const e_username = document.createElement("p");
-    e_username.innerHTML = `(${username})`;
+    e_username.innerHTML = `(${username.split(':').slice(-1)[0]})`;
     e_username.classList.add("username");
     
     div_name.appendChild(e_name);
