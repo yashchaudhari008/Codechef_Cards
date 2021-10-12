@@ -215,6 +215,10 @@ footer {
     cursor: pointer;
 }
 
+.bold {
+    font-weight: bolder;
+}
+
 /* Width */
 ::-webkit-scrollbar {
     width: 10px;
