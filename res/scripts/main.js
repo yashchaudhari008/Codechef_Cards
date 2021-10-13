@@ -34,7 +34,7 @@ function deleteUser() {
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
-    
+    if (users.size === 0 ) {toggleMenu();}
 }
 
 function storeData(data) {
