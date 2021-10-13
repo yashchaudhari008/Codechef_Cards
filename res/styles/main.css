@@ -102,7 +102,7 @@ footer {
     padding: 8px;
     border: 2px solid var(--appBackground);
     border-radius: var(--borderRadius);
-
+    outline: 0;
     background-color: var(--appSurface);
     color: white;
 
