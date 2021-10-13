@@ -1,23 +1,23 @@
 :root {
     /*Fundamental Properties*/
-    --borderRadius: 10px;
+    --borderRadius : 10px;
 
     /*Colors*/
-    --appMain: rgb(0, 0, 0);
+    --appMain: rgb(0,0,0);
     --appBackground: rgb(25, 25, 25);
     --appSurface: rgba(255, 255, 255, 0.1);
     --appText: white;
     --appSurfaceText: rgba(255, 255, 255, 0.7);
 
     --primary: rgb(187, 134, 252);
-    --primaryText: rgba(0, 0, 0, 0.7);
+    --primaryText: rgba(0,0,0,0.7);
     --secondary: rgb(79, 57, 107);
     --secondaryText: rgba(255, 255, 255, 0.9);
     --brighten: rgba(255, 255, 255, 0.1);
+
 }
-html,
-body {
-    width: 100%;
+html, body {
+    height: 100%;
     margin: 0px;
     padding: 0px;
 
@@ -58,24 +58,21 @@ header #github-logo {
     font-size: 25px;
 }
 footer {
-    width: 100%;
     padding: 10px;
 
     background-color: var(--appMain);
     color: var(--secondaryText);
 
     text-align: center;
-
-    position: fixed;
-    bottom: 0;
 }
 #root {
-    margin-bottom: 5rem;
+    height: 100%;
+
     display: flex;
-    gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    gap:10px;
+    align-items: center;
 
     overflow: scroll;
     overflow-x: hidden;
@@ -84,7 +81,7 @@ footer {
 }
 #menu-bar {
     padding: 10px;
-    margin: 1rem;
+    margin: 5px;
     width: 80%;
     max-width: 400px;
     border-radius: var(--borderRadius);
@@ -125,11 +122,11 @@ footer {
 
     background-color: var(--primary);
     color: var(--primaryText);
-
+    
     cursor: pointer;
     font-weight: bold;
 }
-#menu-content {
+#menu-content{
     margin: 5px;
     padding: 10px;
     border-radius: var(--borderRadius);
@@ -147,7 +144,7 @@ footer {
 .hide {
     display: none !important;
     visibility: hidden;
-}
+} 
 .card {
     padding: 10px;
     margin: 5px;
@@ -172,7 +169,7 @@ footer {
     padding-inline: 10px;
     margin: 0px;
 
-    font-family: "Raleway";
+    font-family: 'Raleway';
     font-size: 25px;
 }
 .card .card-header .username {
@@ -180,7 +177,7 @@ footer {
     padding-left: 10px;
     margin: 0px;
 
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-size: 15px;
 }
 .card .rating {
@@ -216,7 +213,7 @@ footer {
 
     font-weight: bold;
 }
-.card .delete-button:hover {
+.card .delete-button:hover{
     cursor: pointer;
 }
 
@@ -224,7 +221,7 @@ footer {
 ::-webkit-scrollbar {
     width: 10px;
 }
-
+  
 /* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
