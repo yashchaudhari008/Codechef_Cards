@@ -87,7 +87,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_name.classList.add("name");
 
     const e_username = document.createElement("p");
-    e_username.innerHTML = `(${username})`;
+    e_username.innerHTML = `(${username.split(':').slice(-1)[0]})`;
     e_username.classList.add("username");
     
     div_name.appendChild(e_name);
