@@ -103,7 +103,6 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
-    e_highestRating.classList.add("bold");
     
     const e_globalRank = document.createElement("p");
     e_globalRank.innerHTML = `Global Rank: ${globalRank}`;
@@ -113,11 +112,9 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
 
     const e_fullySolved = document.createElement("p");
     e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
-    e_fullySolved.classList.add("bold");
 
     const e_partiallySolved = document.createElement("p");
     e_partiallySolved.innerHTML = `Problems Partially Solved: ${partiallySolved}`;
-    e_partiallySolved.classList.add("bold");
 
     const e_delete = document.createElement("button");
     e_delete.innerHTML = 'Delete';
