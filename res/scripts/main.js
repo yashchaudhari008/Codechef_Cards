@@ -34,7 +34,6 @@ function deleteUser() {
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
-    users = new Set(JSON.parse(localStorage.getItem('usernames')));
     if (users.size === 0 ) {toggleMenu();}
 }
 
