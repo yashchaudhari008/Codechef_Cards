@@ -14,7 +14,7 @@
     --secondary: rgb(79, 57, 107);
     --secondaryText: rgba(255, 255, 255, 0.9);
     --brighten: rgba(255, 255, 255, 0.1);
-    --darken: rgba(0, 0, 0, 0.5)
+    --darken: rgba(0, 0, 0, 0.5);
 
 }
 html, body {
@@ -250,24 +250,24 @@ footer {
 #alert {
     background-color: var(--appBackground);
     color: var(--appSurfaceText);
-    padding: 1rem;
-    width: 25rem;
-    max-width: 100%;
+    padding: 10px;
+    padding-inline: 20px;
+    width: 250px;
+    border: 2px solid var(--brighten);
     border-radius: var(--borderRadius);
     text-align: center;
-    margin: 1rem;
     animation: slide-up 0.2s;
 }
 
 #alert-header {
     font-weight: bold;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 #alert-message {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+    font-size: 15px;
+    margin: 10px 0px 20px 0px;
 }
 
 
