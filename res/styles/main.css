@@ -249,6 +249,7 @@ footer {
     border-radius: var(--borderRadius);
     text-align: center;
     margin: 1rem;
+    animation: slide-up 0.2s;
 }
 
 #alert-header {
@@ -276,4 +277,13 @@ footer {
 #alert button:hover {
     background-color: var(--secondary);
     color: var(--secondaryText)
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(10rem)
+    }
+    to {
+        transform: translateY(0);
+    }
 }
