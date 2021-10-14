@@ -31,6 +31,15 @@ body {
     background-color: var(--appBackground);
     color: var(--appText);
 }
+/* Particle effect*/
+  #home,
+  #particles-js {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+  }
+  
 header {
     padding: 10px;
     margin: 0px;
