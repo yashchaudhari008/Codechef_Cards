@@ -44,7 +44,7 @@ function storeData(data) {
 function getDetails(username){
     username = username.toLowerCase();
     if (users.has(username) && loadingFinished) {
-        alert(`Username "${username}" already exists.`);
+        showAlert(`Username "${username}" already exists.`);
         return;
     }
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
@@ -53,7 +53,7 @@ function getDetails(username){
         function (data) {
             // console.log(data);
             if(data.status === 'Failed' && data.details === 'Invalid username'){
-                alert(`"${username}" is an invalid username.`);
+                showAlert(`"${username}" is an invalid username.`);
                 return;
             }
             const information = {
