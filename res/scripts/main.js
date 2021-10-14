@@ -151,3 +151,35 @@ function toggleMenu()
     }
     menu_content.classList.toggle('hide');
 }
+
+function showAlert(message){
+    const backdrop = document.createElement('div');
+    backdrop.id = 'backdrop';
+
+    const alertContainer = document.createElement('div');
+    alertContainer.id = 'alert';
+
+    const alertHeader = document.createElement('div');
+    alertHeader.id = 'alert-header';
+    alertHeader.innerText = 'Error';
+
+
+    const alertMessage = document.createElement('div');
+    alertMessage.id = 'alert-message';
+    alertMessage.innerText = message;
+
+    const closeBtn = document.createElement('button');
+    closeBtn.innerText = 'Close';
+    closeBtn.addEventListener('click', function(){
+        backdrop.remove();
+    })
+
+   alertContainer.appendChild(alertHeader);
+   alertContainer.appendChild(alertMessage);
+   alertContainer.appendChild(closeBtn);
+
+   backdrop.appendChild(alertContainer);
+
+   document.body.appendChild(backdrop);
+
+}

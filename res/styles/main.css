@@ -228,3 +228,52 @@ footer {
 
     background: var(--primary);
 }
+
+#backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#alert {
+    background-color: var(--primary);
+    color: var(--primaryText);
+    padding: 2rem;
+    width: 25rem;
+    max-width: 100%;
+    border-radius: var(--borderRadius);
+    text-align: center;
+    margin: 1rem;
+}
+
+#alert-header {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#alert-message {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#alert button {
+    color: var(--primaryText);
+    border: 0.35rem solid var(--secondary);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var(--primary);
+    transition: all 0.15s;
+    outline: none;
+}
+
+#alert button:hover {
+    background-color: var(--secondary);
+    color: var(--secondaryText)
+}
