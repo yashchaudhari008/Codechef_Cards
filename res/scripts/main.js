@@ -90,7 +90,18 @@ function createCard({name, country, username, rating, highestRating, stars, coun
     e_name.classList.add("name");
 
     const e_username = document.createElement("p");
-    e_username.innerHTML = `(${username.split(':').slice(-1)[0]})`;
+    fetch(`https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json`)
+    .then( function (flag_emoji) { return flag_emoji.json() } )
+    .then(
+        function (country_data) {
+            // console.log(data);
+            let country_json = country_data.find(el => el.name === country);
+            const emoji = country_json["emoji"];
+
+            e_username.innerHTML = `${emoji} (${username.split(':').slice(-1)[0]})`;
+        }
+    )
+    .catch((error) => console.error("Cannot Fetch Flag Data From API, ",error));
     e_username.classList.add("username");
     
     div_name.appendChild(e_name);
@@ -102,20 +113,6 @@ function createCard({name, country, username, rating, highestRating, stars, coun
 
     const div_others = document.createElement("div"); 
     div_others.classList.add("others");
-
-    const e_countryName = document.createElement("p");
-    fetch(`https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json`)
-    .then( function (flag_emoji) { return flag_emoji.json() } )
-    .then(
-        function (country_data) {
-            // console.log(data);
-            let country_json = country_data.find(el => el.name === country);
-            const emoji = country_json["emoji"];
-
-            e_countryName.innerHTML = `Country: ${emoji} ${country}`;
-        }
-    )
-    .catch((error) => console.error("Cannot Fetch Flag Data From API, ",error));
     
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
@@ -138,7 +135,6 @@ function createCard({name, country, username, rating, highestRating, stars, coun
     e_delete.addEventListener('click', deleteUser);
 
     div_others.appendChild(e_highestRating);
-    div_others.appendChild(e_countryName);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
     div_others.appendChild(e_fullySolved);
