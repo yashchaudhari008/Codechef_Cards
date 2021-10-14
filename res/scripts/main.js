@@ -3,6 +3,7 @@ let users = new Set();
 let loadingFinished = false;
 
 let menuRoot = document.getElementById('menu-bar');
+const alertBackdrop = document.getElementById('backdrop');
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
@@ -44,7 +45,7 @@ function storeData(data) {
 function getDetails(username){
     username = username.toLowerCase();
     if (users.has(username) && loadingFinished) {
-        alert(`Username "${username}" already exists.`);
+        showAlert(`Username "${username}" already exists.`);
         return;
     }
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
@@ -53,7 +54,7 @@ function getDetails(username){
         function (data) {
             // console.log(data);
             if(data.status === 'Failed' && data.details === 'Invalid username'){
-                alert(`"${username}" is an invalid username.`);
+                showAlert(`"${username}" is an invalid username.`);
                 return;
             }
             const information = {
@@ -63,7 +64,9 @@ function getDetails(username){
                 highestRating: data.highest_rating,
                 stars: data.stars,
                 countryRank: data.country_rank,
-                globalRank: data.global_rank 
+                globalRank: data.global_rank,
+                fullySolved: data.fully_solved.count,
+                partiallySolved: data.partially_solved.count,
             }
             createCard(information);
             users.add(username);
@@ -73,7 +76,7 @@ function getDetails(username){
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
 
-function createCard({name, username, rating, highestRating, stars, countryRank, globalRank}){
+function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, fullySolved, partiallySolved}){
 
     const root = document.createElement("div");
     root.classList.add("card");
@@ -101,13 +104,18 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
-    e_highestRating.classList.add("highest-rating");
     
     const e_globalRank = document.createElement("p");
     e_globalRank.innerHTML = `Global Rank: ${globalRank}`;
 
     const e_countryRank = document.createElement("p");
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
+
+    const e_fullySolved = document.createElement("p");
+    e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
+
+    const e_partiallySolved = document.createElement("p");
+    e_partiallySolved.innerHTML = `Problems Partially Solved: ${partiallySolved}`;
 
     const e_delete = document.createElement("button");
     e_delete.innerHTML = 'Delete';
@@ -117,6 +125,8 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
+    div_others.appendChild(e_fullySolved);
+    div_others.appendChild(e_partiallySolved);
     div_others.appendChild(e_delete);
 
 
@@ -150,4 +160,13 @@ function toggleMenu()
         toggle_icon.classList.add('fa-chevron-up');   
     }
     menu_content.classList.toggle('hide');
+}
+
+function showAlert(message){
+    alertBackdrop.classList.toggle('hide');
+    alertBackdrop.querySelector('#alert-message').textContent = message;
+}
+
+function closeAlert(){
+    alertBackdrop.classList.toggle('hide');
 }
