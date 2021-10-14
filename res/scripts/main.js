@@ -154,10 +154,10 @@ function toggleMenu()
 }
 
 function showAlert(message){
-    alertBackdrop.style.display = 'flex';
+    alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
 }
 
 function closeAlert(){
-    alertBackdrop.style.display = 'none';
+    alertBackdrop.classList.toggle('hide');
 }
