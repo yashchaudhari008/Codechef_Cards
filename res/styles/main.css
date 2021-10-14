@@ -207,12 +207,12 @@ footer {
 }
 .card .delete-cross {
     background: transparent;
-    color: var(--secondary);
+    color: rgb(112, 112, 112);
     position: absolute;
     top: 0;
     right: 0;
     border: none;
-    font-size: 2em;
+    font-size: 30px;
 }
 .card .delete-cross:hover {
     cursor: pointer;
