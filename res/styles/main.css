@@ -214,7 +214,7 @@ footer {
     border: none;
     font-size: 2em;
 }
-.card .delete-cross:hover, .card .details-expander:hover {
+.card .delete-cross:hover {
     cursor: pointer;
     color: var(--secondaryText);
 }

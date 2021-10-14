@@ -124,13 +124,12 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_delete.classList.add('delete-cross')
     e_delete.addEventListener('click', deleteUser);
 
-    const e_moreDetails = document.createElement("div");
-    e_moreDetails.innerHTML = 'More Details &darr;'
-    e_moreDetails.setAttribute('title', 'Maximize');
-    e_moreDetails.classList.add('details-expander');
-    e_moreDetails.addEventListener('click', () => e_moreDetails.replaceWith(e_highestRating, e_globalRank, e_countryRank, e_fullySolved, e_partiallySolved));
     div_others.appendChild(e_delete);
-    div_others.appendChild(e_moreDetails);
+    div_others.appendChild(e_highestRating);
+    div_others.appendChild(e_globalRank);
+    div_others.appendChild(e_countryRank);
+    div_others.appendChild(e_fullySolved);
+    div_others.appendChild(e_partiallySolved);
 
     root.appendChild(div_name);
     root.appendChild(e_rating);
