@@ -101,9 +101,20 @@ function createCard({name, country, username, rating, highestRating, stars, coun
 
     const div_others = document.createElement("div"); 
     div_others.classList.add("others");
-    
+
     const e_countryName = document.createElement("p");
-    e_countryName.innerHTML = `Country: ${country}`;
+    fetch(`https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json`)
+    .then( function (flag_emoji) { return flag_emoji.json() } )
+    .then(
+        function (country_data) {
+            // console.log(data);
+            let country_json = country_data.find(el => el.name === country);
+            const emoji = country_json["emoji"];
+
+            e_countryName.innerHTML = `Country: ${emoji} ${country}`;
+        }
+    )
+    .catch((error) => console.error("Cannot Fetch Flag Data From API, ",error));
     
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
