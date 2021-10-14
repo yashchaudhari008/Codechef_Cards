@@ -104,7 +104,6 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
-    e_highestRating.classList.add("highest-rating");
     
     const e_globalRank = document.createElement("p");
     e_globalRank.innerHTML = `Global Rank: ${globalRank}`;

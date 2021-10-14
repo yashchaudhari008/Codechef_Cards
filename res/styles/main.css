@@ -153,7 +153,8 @@ footer {
     visibility: hidden;
 } 
 .card {
-    padding: 2em .5em .5em;
+    padding: 10px;
+    padding-top: 25px;
     margin: 5px;
     width: 80%;
     max-width: 400px;
