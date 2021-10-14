@@ -160,13 +160,16 @@ footer {
     max-width: 400px;
     border-radius: var(--borderRadius);
     position: relative;
+
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
+
     text-align: center;
 }
 .card .card-header {
     margin: 5px;
     border-radius: var(--borderRadius);
+
     background-color: var(--primary);
     color: var(--primaryText);
 }
@@ -174,6 +177,7 @@ footer {
     padding-top: 5px;
     padding-inline: 10px;
     margin: 0px;
+    
     font-family: 'Raleway';
     font-size: 25px;
 }
