@@ -58,6 +58,7 @@ function getDetails(username){
             }
             const information = {
                 name: data.user_details.name,
+                country: data.user_details.country,
                 username: data.user_details.username,
                 rating: data.rating,
                 highestRating: data.highest_rating,
@@ -75,7 +76,7 @@ function getDetails(username){
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
 
-function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, fullySolved, partiallySolved}){
+function createCard({name, country, username, rating, highestRating, stars, countryRank, globalRank, fullySolved, partiallySolved}){
 
     const root = document.createElement("div");
     root.classList.add("card");
@@ -101,6 +102,9 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const div_others = document.createElement("div"); 
     div_others.classList.add("others");
     
+    const e_countryName = document.createElement("p");
+    e_countryName.innerHTML = `Country: ${country}`;
+    
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
     
@@ -122,6 +126,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_delete.addEventListener('click', deleteUser);
 
     div_others.appendChild(e_highestRating);
+    div_others.appendChild(e_countryName);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
     div_others.appendChild(e_fullySolved);
