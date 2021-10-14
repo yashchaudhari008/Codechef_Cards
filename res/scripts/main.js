@@ -3,6 +3,7 @@ let users = new Set();
 let loadingFinished = false;
 
 let menuRoot = document.getElementById('menu-bar');
+const alertBackdrop = document.getElementById('backdrop');
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
@@ -44,7 +45,7 @@ function storeData(data) {
 function getDetails(username){
     username = username.toLowerCase();
     if (users.has(username) && loadingFinished) {
-        alert(`Username "${username}" already exists.`);
+        showAlert(`Username "${username}" already exists.`);
         return;
     }
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
@@ -53,7 +54,7 @@ function getDetails(username){
         function (data) {
             // console.log(data);
             if(data.status === 'Failed' && data.details === 'Invalid username'){
-                alert(`"${username}" is an invalid username.`);
+                showAlert(`"${username}" is an invalid username.`);
                 return;
             }
             const information = {
@@ -175,4 +176,13 @@ function toggleMenu()
         toggle_icon.classList.add('fa-chevron-up');   
     }
     menu_content.classList.toggle('hide');
+}
+
+function showAlert(message){
+    alertBackdrop.classList.toggle('hide');
+    alertBackdrop.querySelector('#alert-message').textContent = message;
+}
+
+function closeAlert(){
+    alertBackdrop.classList.toggle('hide');
 }
