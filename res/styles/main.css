@@ -146,21 +146,18 @@ footer {
     visibility: hidden;
 } 
 .card {
-    padding: 10px;
+    padding: 2em .5em .5em;
     margin: 5px;
     width: 80%;
     max-width: 400px;
     border-radius: var(--borderRadius);
-
+    position: relative;
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
     text-align: center;
 }
 .card .card-header {
     margin: 5px;
-    padding-left: 2em;
-    padding-right: 2em;
-    position: relative;
     border-radius: var(--borderRadius);
     background-color: var(--primary);
     color: var(--primaryText);
@@ -169,7 +166,6 @@ footer {
     padding-top: 5px;
     padding-inline: 10px;
     margin: 0px;
-
     font-family: 'Raleway';
     font-size: 25px;
 }
@@ -202,30 +198,18 @@ footer {
 
     font-size: 12px;
 }
-.card.minimized .rating, .card.minimized .others {
-    display: none;
-}
-.card .delete-cross, .card .minimize {
-    background: transparent;
-    color: var(--secondaryText);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-}
-.card .minimize {
-    font-size: 1.5em;
-    left: 0;
-}
-.card.minimized .minimize {
-    transform: translateY(-50%) rotateZ(90deg);
-}
 .card .delete-cross {
-    font-size: 2em;
+    background: transparent;
+    color: var(--secondary);
+    position: absolute;
+    top: 0;
     right: 0;
+    border: none;
+    font-size: 2em;
 }
-.card .delete-cross:hover {
+.card .delete-cross:hover, .card .details-expander:hover {
     cursor: pointer;
+    color: var(--secondaryText);
 }
 
 /* Width */
