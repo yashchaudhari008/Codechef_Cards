@@ -34,7 +34,7 @@ function deleteUser() {
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
-    
+    if (users.size === 0 ) {toggleMenu();}
 }
 
 function storeData(data) {
@@ -63,7 +63,9 @@ function getDetails(username){
                 highestRating: data.highest_rating,
                 stars: data.stars,
                 countryRank: data.country_rank,
-                globalRank: data.global_rank 
+                globalRank: data.global_rank,
+                fullySolved: data.fully_solved.count,
+                partiallySolved: data.partially_solved.count,
             }
             createCard(information);
             users.add(username);
@@ -73,7 +75,7 @@ function getDetails(username){
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
 
-function createCard({name, username, rating, highestRating, stars, countryRank, globalRank}){
+function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, fullySolved, partiallySolved}){
 
     const root = document.createElement("div");
     root.classList.add("card");
@@ -86,7 +88,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_name.classList.add("name");
 
     const e_username = document.createElement("p");
-    e_username.innerHTML = `(${username})`;
+    e_username.innerHTML = `(${username.split(':').slice(-1)[0]})`;
     e_username.classList.add("username");
     
     div_name.appendChild(e_name);
@@ -109,6 +111,12 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_countryRank = document.createElement("p");
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
 
+    const e_fullySolved = document.createElement("p");
+    e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
+
+    const e_partiallySolved = document.createElement("p");
+    e_partiallySolved.innerHTML = `Problems Partially Solved: ${partiallySolved}`;
+
     const e_delete = document.createElement("button");
     e_delete.innerHTML = '&times;';
     e_delete.setAttribute('title', 'Delete');
@@ -124,9 +132,9 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
-    div_name.appendChild(e_delete);
-    div_name.appendChild(e_minimize);
-
+    div_others.appendChild(e_fullySolved);
+    div_others.appendChild(e_partiallySolved);
+    div_others.appendChild(e_delete);
 
     root.appendChild(div_name);
     root.appendChild(e_rating);

@@ -69,7 +69,9 @@ footer {
     height: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:10px;
     align-items: center;
 
     overflow: scroll;
@@ -100,7 +102,7 @@ footer {
     padding: 8px;
     border: 2px solid var(--appBackground);
     border-radius: var(--borderRadius);
-
+    outline: 0;
     background-color: var(--appSurface);
     color: white;
 
