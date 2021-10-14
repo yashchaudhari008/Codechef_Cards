@@ -43,7 +43,7 @@ function storeData(data) {
 }
 
 function getDetails(username){
-    username = username.toLowerCase();
+    username = username.toLowerCase().trim();
     if (users.has(username) && loadingFinished) {
         showAlert(`Username "${username}" already exists.`);
         return;
@@ -118,17 +118,17 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_partiallySolved.innerHTML = `Problems Partially Solved: ${partiallySolved}`;
 
     const e_delete = document.createElement("button");
-    e_delete.innerHTML = 'Delete';
-    e_delete.classList.add('delete-button')
+    e_delete.innerHTML = '&times;';
+    e_delete.setAttribute('title', 'Delete');
+    e_delete.classList.add('delete-cross')
     e_delete.addEventListener('click', deleteUser);
 
+    div_others.appendChild(e_delete);
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
     div_others.appendChild(e_fullySolved);
     div_others.appendChild(e_partiallySolved);
-    div_others.appendChild(e_delete);
-
 
     root.appendChild(div_name);
     root.appendChild(e_rating);
