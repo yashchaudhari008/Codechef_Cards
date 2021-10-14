@@ -3,6 +3,7 @@ let users = new Set();
 let loadingFinished = false;
 
 let menuRoot = document.getElementById('menu-bar');
+const alertBackdrop = document.getElementById('backdrop');
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
@@ -153,33 +154,10 @@ function toggleMenu()
 }
 
 function showAlert(message){
-    const backdrop = document.createElement('div');
-    backdrop.id = 'backdrop';
+    alertBackdrop.style.display = 'flex';
+    alertBackdrop.querySelector('#alert-message').textContent = message;
+}
 
-    const alertContainer = document.createElement('div');
-    alertContainer.id = 'alert';
-
-    const alertHeader = document.createElement('div');
-    alertHeader.id = 'alert-header';
-    alertHeader.innerText = 'Error';
-
-
-    const alertMessage = document.createElement('div');
-    alertMessage.id = 'alert-message';
-    alertMessage.innerText = message;
-
-    const closeBtn = document.createElement('button');
-    closeBtn.innerText = 'Close';
-    closeBtn.addEventListener('click', function(){
-        backdrop.remove();
-    })
-
-   alertContainer.appendChild(alertHeader);
-   alertContainer.appendChild(alertMessage);
-   alertContainer.appendChild(closeBtn);
-
-   backdrop.appendChild(alertContainer);
-
-   document.body.appendChild(backdrop);
-
+function closeAlert(){
+    alertBackdrop.style.display = 'none';
 }

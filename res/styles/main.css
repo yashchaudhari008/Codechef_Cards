@@ -233,9 +233,9 @@ footer {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: var(--appSurface);
     z-index: 1000;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -243,7 +243,7 @@ footer {
 #alert {
     background-color: var(--primary);
     color: var(--primaryText);
-    padding: 2rem;
+    padding: 1rem;
     width: 25rem;
     max-width: 100%;
     border-radius: var(--borderRadius);
@@ -255,12 +255,12 @@ footer {
 
 #alert-header {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 #alert-message {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
 }
 
