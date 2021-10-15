@@ -9,9 +9,9 @@
     --appText: white;
     --appSurfaceText: rgba(255, 255, 255, 0.7);
 
-    --primary: rgb(187, 134, 252);
+    --primary: rgb(249, 246, 239);
     --primaryText: rgba(0,0,0,0.7);
-    --secondary: rgb(79, 57, 107);
+    --secondary: rgb(270, 154, 0);
     --secondaryText: rgba(255, 255, 255, 0.9);
     --brighten: rgba(255, 255, 255, 0.1);
     --darken: rgba(0, 0, 0, 0.5);
@@ -27,8 +27,8 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-
-    background-color: var(--appBackground);
+    background-image: url("brown.gif");
+    /* background-color: var(--appBackground); */
     color: var(--appText);
 }
 header {
@@ -61,6 +61,8 @@ header #github-logo {
 footer {
     padding: 10px;
 
+
+
     background-color: var(--appMain);
     color: var(--secondaryText);
 
@@ -87,11 +89,20 @@ footer {
     max-width: 400px;
     border-radius: var(--borderRadius);
 
+    transform: translateX(112%);
+
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
 
     display: flex;
     flex-direction: column;
+
+    margin-left: 112px;
+    /* TODO */
+
+    /* right: 140px;
+    position: absolute;
+    top: 55px; */
 
     align-self: center;
     align-items: flex-end;
@@ -124,14 +135,14 @@ footer {
 
     background-color: var(--primary);
     color: var(--primaryText);
-    
+
     cursor: pointer;
     font-weight: bold;
 }
 #menu-bar button:hover, #alert button:hover {
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
-}  
+}
 
 #menu-content{
     margin: 5px;
@@ -143,6 +154,7 @@ footer {
     display: flex;
     flex-direction: column;
 
+
     align-self: stretch;
     align-items: center;
     justify-content: center;
@@ -151,27 +163,31 @@ footer {
 .hide {
     display: none !important;
     visibility: hidden;
-} 
+}
 .card {
-    padding: 10px;
-    padding-top: 25px;
-    margin: 5px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: var(--borderRadius);
+    padding: 10px !important;
+    padding-top: 25px !important;
+    margin: 5px !important;
+    width: 80% !important;
+    max-width: 400px !important;
+    border-radius: var(--borderRadius) !important;
+
     position: relative;
 
-    background-color: var(--appSurface);
-    color: var(--appSurfaceText);
+    /* position: absolute;
+    right: 140px; */
 
-    text-align: center;
+    background-color: var(--appSurface) !important;
+    color: var(--appSurfaceText) !important;
+
+    text-align: center !important;
 }
 .card .card-header {
     margin: 5px;
-    border-radius: var(--borderRadius);
+    border-radius: var(--borderRadius) !important;
 
-    background-color: var(--primary);
-    color: var(--primaryText);
+    background-color: var(--primary) !important;
+    color: var(--primaryText) !important;
 }
 .card .card-header .name {
     padding-top: 5px;
@@ -228,7 +244,7 @@ footer {
 ::-webkit-scrollbar {
     width: 10px;
 }
-  
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
@@ -275,3 +291,4 @@ footer {
     from { transform: translateY(10rem) }
     to { transform: translateY(0) }
 }
+

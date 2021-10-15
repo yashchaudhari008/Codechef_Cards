@@ -81,7 +81,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const root = document.createElement("div");
     root.classList.add("card");
 
-    const div_name = document.createElement("div"); 
+    const div_name = document.createElement("div");
     div_name.classList.add("card-header");
 
     const e_name = document.createElement("p");
@@ -91,7 +91,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_username = document.createElement("p");
     e_username.innerHTML = `(${username.split(':').slice(-1)[0]})`;
     e_username.classList.add("username");
-    
+
     div_name.appendChild(e_name);
     div_name.appendChild(e_username);
 
@@ -99,12 +99,12 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_rating.innerHTML = `Rating: ${rating} (${stars})`;
     e_rating.classList.add("rating");
 
-    const div_others = document.createElement("div"); 
+    const div_others = document.createElement("div");
     div_others.classList.add("others");
-    
+
     const e_highestRating = document.createElement("p");
     e_highestRating.innerHTML = `Highest Rating: ${highestRating}`;
-    
+
     const e_globalRank = document.createElement("p");
     e_globalRank.innerHTML = `Global Rank: ${globalRank}`;
 
@@ -133,7 +133,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.appendChild(div_name);
     root.appendChild(e_rating);
     root.appendChild(div_others);
-    
+
     // Sorting happens here
     for (let currentNode of rootNode.childNodes){
         const ratingElement = currentNode.querySelector(".rating");
@@ -157,7 +157,7 @@ function toggleMenu()
         toggle_icon.classList.add('fa-chevron-down');
     } else {
         toggle_icon.classList.remove('fa-chevron-down');
-        toggle_icon.classList.add('fa-chevron-up');   
+        toggle_icon.classList.add('fa-chevron-up');
     }
     menu_content.classList.toggle('hide');
 }
