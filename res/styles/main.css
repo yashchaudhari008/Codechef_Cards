@@ -154,10 +154,12 @@ footer {
 } 
 .card {
     padding: 10px;
+    padding-top: 25px;
     margin: 5px;
     width: 80%;
     max-width: 400px;
     border-radius: var(--borderRadius);
+    position: relative;
 
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
@@ -208,20 +210,18 @@ footer {
 
     font-size: 12px;
 }
-.card .delete-button {
-    /* margin: 5px; */
-    padding: 8px;
-    padding-inline: 10px;
-    border: 0px;
-    border-radius: var(--borderRadius);
-
-    background-color: var(--primary);
-    color: var(--primaryText);
-
-    font-weight: bold;
+.card .delete-cross {
+    background: transparent;
+    color: rgb(112, 112, 112);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    font-size: 30px;
 }
-.card .delete-button:hover{
+.card .delete-cross:hover {
     cursor: pointer;
+    color: var(--secondaryText);
 }
 
 /* Width */
