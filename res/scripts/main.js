@@ -82,7 +82,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.classList.add("card");
 
     const div_name = document.createElement("div"); 
-    div_name.classList.add("card-header",starsToClass(stars));
+    div_name.classList.add("card-header",starsToClass(stars)+"_d");
 
     const e_name = document.createElement("p");
     e_name.innerHTML = name;
