@@ -101,7 +101,7 @@ function createCard({name, country, username, rating, highestRating, stars, coun
     div_name.appendChild(e_username);
 
     const e_rating = document.createElement("p");
-    e_rating.innerHTML = `Rating: ${rating} (${stars})`;
+    e_rating.innerHTML = `Rating: ${rating} ${stars ? `(${stars})` : ""}`;
     e_rating.classList.add("rating");
 
     const div_others = document.createElement("div"); 
