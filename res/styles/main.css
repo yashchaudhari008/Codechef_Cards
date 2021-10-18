@@ -9,9 +9,9 @@
     --appText: white;
     --appSurfaceText: rgba(255, 255, 255, 0.7);
 
-    --primary: rgb(187, 134, 252);
+    --primary: rgb(218, 218, 218);
     --primaryText: rgba(0,0,0,0.7);
-    --secondary: rgb(79, 57, 107);
+    --secondary: rgb(168, 168, 168);
     --secondaryText: rgba(255, 255, 255, 0.9);
     --brighten: rgba(255, 255, 255, 0.1);
     --darken: rgba(0, 0, 0, 0.5);
@@ -170,7 +170,6 @@ footer {
     margin: 5px;
     border-radius: var(--borderRadius);
 
-    background-color: var(--primary);
     color: var(--primaryText);
 }
 .card .card-header .name {
@@ -195,7 +194,6 @@ footer {
     margin-inline: 10px;
     border-radius: var(--borderRadius);
 
-    background-color: var(--secondary);
     color: var(--secondaryText);
 
     font-size: 15px;
@@ -275,3 +273,22 @@ footer {
     from { transform: translateY(10rem) }
     to { transform: translateY(0) }
 }
+
+/* Colour Accent for different ratings */
+._S0 { background-color: #a3a2a2 }
+._S1 { background-color: #6e6e6e }
+._S2 { background-color: #1a631e }
+._S3 { background-color: #2b57ad }
+._S4 { background-color: #6c4579 }
+._S5 { background-color: #cf9c04 }
+._S6 { background-color: #c06102 }
+._S7 { background-color: #a70118 }
+
+._headerS0 { background-color: #d4d4d4 }
+._headerS1 { background-color: #8f8f8f }
+._headerS2 { background-color: #25992b }
+._headerS3 { background-color: #4080ff }
+._headerS4 { background-color: #cf70e9 }
+._headerS5 { background-color: #ffc004 }
+._headerS6 { background-color: #ff8000 }
+._headerS7 { background-color: #ff0022 }

@@ -92,6 +92,7 @@ function createCard({name, country, username, rating, highestRating, stars, coun
 
     const div_name = document.createElement("div"); 
     div_name.classList.add("card-header");
+    if (stars){ div_name.classList.add("_headerS"+stars[0])} else {div_name.classList.add("_headerS0")}
 
     const e_name = document.createElement("p");
     e_name.innerHTML = name;
@@ -107,6 +108,7 @@ function createCard({name, country, username, rating, highestRating, stars, coun
     const e_rating = document.createElement("p");
     e_rating.innerHTML = `Rating: ${rating} ${stars ? `(${stars})` : ""}`;
     e_rating.classList.add("rating");
+    if (stars){ e_rating.classList.add("_S"+stars[0]) } else { e_rating.classList.add("_S0")}
 
     const div_others = document.createElement("div"); 
     div_others.classList.add("others");
