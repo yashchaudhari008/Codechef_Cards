@@ -96,7 +96,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     div_name.appendChild(e_username);
 
     const e_rating = document.createElement("p");
-    e_rating.innerHTML = `Rating: ${rating} (${stars})`;
+    e_rating.innerHTML = `Rating: ${rating} ${stars ? `(${stars})` : ""}`;
     e_rating.classList.add("rating");
 
     const div_others = document.createElement("div"); 
@@ -160,6 +160,9 @@ function toggleMenu()
         toggle_icon.classList.add('fa-chevron-up');   
     }
     menu_content.classList.toggle('hide');
+    if (!menu_content.classList.contains('hide')){
+        document.getElementById('username').focus()
+    }
 }
 
 function showAlert(message){
