@@ -160,7 +160,9 @@ function toggleMenu()
         toggle_icon.classList.add('fa-chevron-up');   
     }
     menu_content.classList.toggle('hide');
-    document.getElementById('username').focus()
+    if (!menu_content.classList.contains('hide')){
+        document.getElementById('username').focus()
+    }
 }
 
 function showAlert(message){
