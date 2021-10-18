@@ -158,9 +158,9 @@ function toggleMenu()
     } else {
         toggle_icon.classList.remove('fa-chevron-down');
         toggle_icon.classList.add('fa-chevron-up');   
-        setTimeout(() => document.getElementById('username').focus(), 0);
     }
     menu_content.classList.toggle('hide');
+    document.getElementById('username').focus()
 }
 
 function showAlert(message){
