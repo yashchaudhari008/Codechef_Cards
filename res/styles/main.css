@@ -9,9 +9,9 @@
     --appText: white;
     --appSurfaceText: rgba(255, 255, 255, 0.7);
 
-    --primary: rgb(187, 134, 252);
+    --primary: rgb(218, 218, 218);
     --primaryText: rgba(0,0,0,0.7);
-    --secondary: rgb(79, 57, 107);
+    --secondary: rgb(168, 168, 168);
     --secondaryText: rgba(255, 255, 255, 0.9);
     --brighten: rgba(255, 255, 255, 0.1);
     --darken: rgba(0, 0, 0, 0.5);
