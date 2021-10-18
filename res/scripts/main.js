@@ -8,6 +8,10 @@ let loadingFinished = false;
 let menuRoot = document.getElementById('menu-bar');
 const alertBackdrop = document.getElementById('backdrop');
 
+document.getElementById('toggleMenu').addEventListener('click', toggleMenu)
+document.getElementById('addUser').addEventListener('click', addUser)
+document.getElementById('closeAlert').addEventListener('click', closeAlert)
+
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
     if (users.size === 0 ) {toggleMenu();}
