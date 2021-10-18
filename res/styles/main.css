@@ -274,46 +274,21 @@ footer {
     to { transform: translateY(0) }
 }
 
-.one {
-    background-color: #504f4f;
-}
-.two {
-    background-color: #1a631e;
-}
-.three {
-    background-color: #2b57ad;
-}
-.four {
-    background-color: #422a49;
-}
-.five {
-    background-color: #e0a800;
-}
-.six {
-    background-color: #c06102;
-}
-.seven {
-    background-color: #a70118;
-}
+/* Colour Accent for different ratings */
+._S0 { background-color: #a3a2a2 }
+._S1 { background-color: #6e6e6e }
+._S2 { background-color: #1a631e }
+._S3 { background-color: #2b57ad }
+._S4 { background-color: #6c4579 }
+._S5 { background-color: #cf9c04 }
+._S6 { background-color: #c06102 }
+._S7 { background-color: #a70118 }
 
-.one_d {
-    background-color: #8f8f8f;
-}
-.two_d {
-    background-color: #25992b;
-}
-.three_d {
-    background-color: #4080ff;
-}
-.four_d {
-    background-color: #a267b3;
-}
-.five_d {
-    background-color: #ffbf00;
-}
-.six_d {
-    background-color: #ff8000;
-}
-.seven_d {
-    background-color: #ff0022;
-}
+._headerS0 { background-color: #d4d4d4 }
+._headerS1 { background-color: #8f8f8f }
+._headerS2 { background-color: #25992b }
+._headerS3 { background-color: #4080ff }
+._headerS4 { background-color: #cf70e9 }
+._headerS5 { background-color: #ffc004 }
+._headerS6 { background-color: #ff8000 }
+._headerS7 { background-color: #ff0022 }
