@@ -1,4 +1,4 @@
-import { getCountryImage }from "./countryFlag.js"
+import { getCountryImage }from "https://cdn.jsdelivr.net/gh/jaiakash/countryFlag@master/countryFlag.js"
 // Source Code at https://github.com/jaiakash/countryFlag/blob/master/countryFlag.js
 
 let rootNode = document.getElementById('root');
