@@ -82,7 +82,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     root.classList.add("card");
 
     const div_name = document.createElement("div"); 
-    div_name.classList.add("card-header");
+    div_name.classList.add("card-header",starsToClass(stars));
 
     const e_name = document.createElement("p");
     e_name.innerHTML = name;
@@ -97,7 +97,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
 
     const e_rating = document.createElement("p");
     e_rating.innerHTML = `Rating: ${rating} ${stars ? `(${stars})` : ""}`;
-    e_rating.classList.add("rating");
+    e_rating.classList.add("rating",starsToClass(stars));
 
     const div_others = document.createElement("div"); 
     div_others.classList.add("others");
@@ -172,4 +172,29 @@ function showAlert(message){
 
 function closeAlert(){
     alertBackdrop.classList.toggle('hide');
+}
+
+function starsToClass(stars){
+    var star = stars[0];
+    if(star==="1"){
+        return 'one';
+    }
+    else if(star==="2"){
+        return 'two';
+    }
+    else if(star==="3"){
+        return 'three';
+    }
+    else if(star==="4"){
+        return 'four';
+    }
+    else if(star==="5"){
+        return 'five';
+    }
+    else if(star==="6"){
+        return 'six';
+    }
+    else if(star==="7"){
+        return "seven";
+    }
 }

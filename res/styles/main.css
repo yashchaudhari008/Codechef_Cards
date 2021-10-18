@@ -170,7 +170,6 @@ footer {
     margin: 5px;
     border-radius: var(--borderRadius);
 
-    background-color: var(--primary);
     color: var(--primaryText);
 }
 .card .card-header .name {
@@ -195,7 +194,6 @@ footer {
     margin-inline: 10px;
     border-radius: var(--borderRadius);
 
-    background-color: var(--secondary);
     color: var(--secondaryText);
 
     font-size: 15px;
@@ -274,4 +272,48 @@ footer {
 @keyframes slide-up {
     from { transform: translateY(10rem) }
     to { transform: translateY(0) }
+}
+
+.one {
+    background-color: #504f4f;
+}
+.two {
+    background-color: #1a631e;
+}
+.three {
+    background-color: #2b57ad;
+}
+.four {
+    background-color: #422a49;
+}
+.five {
+    background-color: #e0a800;
+}
+.six {
+    background-color: #c06102;
+}
+.seven {
+    background-color: #a70118;
+}
+
+.one_d {
+    background-color: #8f8f8f;
+}
+.two_d {
+    background-color: #25992b;
+}
+.three_d {
+    background-color: #4080ff;
+}
+.four_d {
+    background-color: #a267b3;
+}
+.five_d {
+    background-color: #ffbf00;
+}
+.six_d {
+    background-color: #ff8000;
+}
+.seven_d {
+    background-color: #ff0022;
 }
