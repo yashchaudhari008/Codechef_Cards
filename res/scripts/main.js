@@ -38,9 +38,10 @@ window.addEventListener('keypress', function (e) {
 
 function deleteUser() {
     const card = this.parentElement.parentElement;
-    const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
+    const username = card.getElementsByClassName('username')[0].innerHTML.slice(90,-1);
     users.delete(username);
     storeData(users);
+    //console.log(username);
     this.parentElement.parentElement.remove();
     if (users.size === 0 ) {toggleMenu();}
 }
@@ -97,8 +98,7 @@ function createCard({name, country, username, rating, highestRating, stars, coun
     e_name.classList.add("name");
 
     const e_username = document.createElement("p");
-    e_username.innerHTML = `<img src='${getCountryImage(country)}' height="12" width="22">
-                            (${username.split(':').slice(-1)[0]}) </img>`;
+    e_username.innerHTML = `<img src='${getCountryImage(country)}' height="12" width="22"></img>(${username.split(':').slice(-1)[0]})`;
     e_username.classList.add("username");
     
     div_name.appendChild(e_name);
