@@ -1,5 +1,6 @@
 let rootNode = document.getElementById('root');
 let users = new Set();
+let totalUserLoaded = 0;
 let loadingFinished = false;
 
 let menuRoot = document.getElementById('menu-bar');
@@ -7,11 +8,10 @@ const alertBackdrop = document.getElementById('backdrop');
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
-    if (users.size === 0 ) {toggleMenu();}
+    if (users.size === 0 ) {toggleMenu(); stopSpinner();}
     for (let user of users){
             getDetails(user);
     }
-    loadingFinished = true;
 }
 
 function addUser() {
@@ -71,6 +71,14 @@ function getDetails(username){
             createCard(information);
             users.add(username);
             storeData(users);
+        }
+    ).then(
+        () => {
+            totalUserLoaded++;
+            if (totalUserLoaded === users.size && !loadingFinished){
+                loadingFinished = true;
+                stopSpinner();
+            }
         }
     )
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
@@ -169,9 +177,20 @@ function toggleMenu()
 
 function showAlert(message){
     alertBackdrop.classList.toggle('hide');
+    alertBackdrop.querySelector('#alert').classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
 }
 
 function closeAlert(){
     alertBackdrop.classList.toggle('hide');
+    alertBackdrop.querySelector('#alert').classList.toggle('hide');
+}
+
+function stopSpinner(){
+    let spinner = alertBackdrop.querySelector("#spinner");
+    if (!spinner.classList.contains('hide')){ 
+        spinner.style.animationIterationCount = 0;
+        spinner.classList.add('hide');
+        alertBackdrop.classList.add('hide');
+    }
 }
