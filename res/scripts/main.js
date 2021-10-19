@@ -1,5 +1,6 @@
 let rootNode = document.getElementById('root');
 let users = new Set();
+let totalUserLoaded = 0;
 let loadingFinished = false;
 
 let menuRoot = document.getElementById('menu-bar');
@@ -7,11 +8,10 @@ const alertBackdrop = document.getElementById('backdrop');
 
 window.onload = () => {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
-    if (users.size === 0 ) {toggleMenu();}
+    if (users.size === 0 ) {toggleMenu(); stopSpinner();}
     for (let user of users){
             getDetails(user);
     }
-    loadingFinished = true;
 }
 
 function addUser() {
@@ -72,6 +72,14 @@ function getDetails(username){
             users.add(username);
             storeData(users);
         }
+    ).then(
+        () => {
+            totalUserLoaded++;
+            if (totalUserLoaded === users.size && !loadingFinished){
+                loadingFinished = true;
+                stopSpinner();
+            }
+        }
     )
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
@@ -83,6 +91,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
 
     const div_name = document.createElement("div"); 
     div_name.classList.add("card-header");
+    if (stars){ div_name.classList.add("_headerS"+stars[0])} else {div_name.classList.add("_headerS0")}
 
     const e_name = document.createElement("p");
     e_name.innerHTML = name;
@@ -98,6 +107,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_rating = document.createElement("p");
     e_rating.innerHTML = `Rating: ${rating} ${stars ? `(${stars})` : ""}`;
     e_rating.classList.add("rating");
+    if (stars){ e_rating.classList.add("_S"+stars[0]) } else { e_rating.classList.add("_S0")}
 
     const div_others = document.createElement("div"); 
     div_others.classList.add("others");
@@ -167,9 +177,20 @@ function toggleMenu()
 
 function showAlert(message){
     alertBackdrop.classList.toggle('hide');
+    alertBackdrop.querySelector('#alert').classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
 }
 
 function closeAlert(){
     alertBackdrop.classList.toggle('hide');
+    alertBackdrop.querySelector('#alert').classList.toggle('hide');
+}
+
+function stopSpinner(){
+    let spinner = alertBackdrop.querySelector("#spinner");
+    if (!spinner.classList.contains('hide')){ 
+        spinner.style.animationIterationCount = 0;
+        spinner.classList.add('hide');
+        alertBackdrop.classList.add('hide');
+    }
 }
