@@ -57,6 +57,8 @@ function getDetails(username){
                 showAlert(`"${username}" is an invalid username.`);
                 return;
             }
+            let competitionsParticipation = new Set(Array.prototype.concat(data.fully_solved ? Object.keys(data.fully_solved):['Practice'], data.partially_solved ? Object.keys(data.partially_solved) : ['Practice']));      // This set contains unique competitions codes (if any, else just 'Practice' to prevent undefined in Set.keys to Arrays.prototype.concat error) with a fully or partially solved problem
+            competitionsParticipation.delete('count'); competitionsParticipation.delete('Practice');    // Removing 'count' and 'Practice' from unique contests code entries in set 'competitionsParticipation'
             const information = {
                 name: data.user_details.name,
                 username: data.user_details.username,
@@ -65,6 +67,7 @@ function getDetails(username){
                 stars: data.stars,
                 countryRank: data.country_rank,
                 globalRank: data.global_rank,
+                competitionsCount: competitionsParticipation.size,
                 fullySolved: data.fully_solved.count,
                 partiallySolved: data.partially_solved.count,
             }
@@ -84,7 +87,7 @@ function getDetails(username){
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
 
-function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, fullySolved, partiallySolved}){
+function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, competitionsCount, fullySolved, partiallySolved}){
 
     const root = document.createElement("div");
     root.classList.add("card");
@@ -121,6 +124,9 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_countryRank = document.createElement("p");
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
 
+    const e_contestsParticipated = document.createElement("p");
+    e_contestsParticipated.innerHTML = `Total Contests Participation: ${competitionsCount}`;
+
     const e_fullySolved = document.createElement("p");
     e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
 
@@ -130,13 +136,14 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_delete = document.createElement("button");
     e_delete.innerHTML = '&times;';
     e_delete.setAttribute('title', 'Delete');
-    e_delete.classList.add('delete-cross')
+    e_delete.classList.add('delete-cross');
     e_delete.addEventListener('click', deleteUser);
 
     div_others.appendChild(e_delete);
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
+    div_others.appendChild(e_contestsParticipated);
     div_others.appendChild(e_fullySolved);
     div_others.appendChild(e_partiallySolved);
 
