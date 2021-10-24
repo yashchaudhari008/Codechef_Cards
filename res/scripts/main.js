@@ -65,6 +65,7 @@ function getDetails(username){
                 stars: data.stars,
                 countryRank: data.country_rank,
                 globalRank: data.global_rank,
+                ratedCompetitionsCount: data.contest_ratings.length,
                 fullySolved: data.fully_solved.count,
                 partiallySolved: data.partially_solved.count,
             }
@@ -84,7 +85,7 @@ function getDetails(username){
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
 
-function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, fullySolved, partiallySolved}){
+function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, ratedCompetitionsCount, fullySolved, partiallySolved}){
 
     const root = document.createElement("div");
     root.classList.add("card");
@@ -121,6 +122,9 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_countryRank = document.createElement("p");
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
 
+    const e_contestsParticipated = document.createElement("p");
+    e_contestsParticipated.innerHTML = `Rated Contests Participated: ${ratedCompetitionsCount}`;
+
     const e_fullySolved = document.createElement("p");
     e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
 
@@ -130,13 +134,14 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     const e_delete = document.createElement("button");
     e_delete.innerHTML = '&times;';
     e_delete.setAttribute('title', 'Delete');
-    e_delete.classList.add('delete-cross')
+    e_delete.classList.add('delete-cross');
     e_delete.addEventListener('click', deleteUser);
 
     div_others.appendChild(e_delete);
     div_others.appendChild(e_highestRating);
     div_others.appendChild(e_globalRank);
     div_others.appendChild(e_countryRank);
+    div_others.appendChild(e_contestsParticipated);
     div_others.appendChild(e_fullySolved);
     div_others.appendChild(e_partiallySolved);
 
