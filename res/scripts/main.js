@@ -57,8 +57,6 @@ function getDetails(username){
                 showAlert(`"${username}" is an invalid username.`);
                 return;
             }
-            let competitionsParticipation = new Set(Array.prototype.concat(data.fully_solved ? Object.keys(data.fully_solved):['Practice'], data.partially_solved ? Object.keys(data.partially_solved) : ['Practice']));      // This set contains unique competitions codes (if any, else just 'Practice' to prevent undefined in Set.keys to Arrays.prototype.concat error) with a fully or partially solved problem
-            competitionsParticipation.delete('count'); competitionsParticipation.delete('Practice');    // Removing 'count' and 'Practice' from unique contests code entries in set 'competitionsParticipation'
             const information = {
                 name: data.user_details.name,
                 username: data.user_details.username,
@@ -67,7 +65,7 @@ function getDetails(username){
                 stars: data.stars,
                 countryRank: data.country_rank,
                 globalRank: data.global_rank,
-                competitionsCount: competitionsParticipation.size,
+                ratedCompetitionsCount: data.contest_ratings.length,
                 fullySolved: data.fully_solved.count,
                 partiallySolved: data.partially_solved.count,
             }
@@ -87,7 +85,7 @@ function getDetails(username){
     .catch((error) => console.error("Cannot Fetch Data From API, ",error))
 }
 
-function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, competitionsCount, fullySolved, partiallySolved}){
+function createCard({name, username, rating, highestRating, stars, countryRank, globalRank, ratedCompetitionsCount, fullySolved, partiallySolved}){
 
     const root = document.createElement("div");
     root.classList.add("card");
@@ -125,7 +123,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
 
     const e_contestsParticipated = document.createElement("p");
-    e_contestsParticipated.innerHTML = `Total Contests Participation: ${competitionsCount}`;
+    e_contestsParticipated.innerHTML = `Rated Contests Participation: ${ratedCompetitionsCount}`;
 
     const e_fullySolved = document.createElement("p");
     e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
