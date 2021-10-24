@@ -123,7 +123,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_countryRank.innerHTML = `Country Rank: ${countryRank}`;
 
     const e_contestsParticipated = document.createElement("p");
-    e_contestsParticipated.innerHTML = `Rated Contests Participation: ${ratedCompetitionsCount}`;
+    e_contestsParticipated.innerHTML = `Rated Contests Participated: ${ratedCompetitionsCount}`;
 
     const e_fullySolved = document.createElement("p");
     e_fullySolved.innerHTML = `Problems Fully Solved: ${fullySolved}`;
