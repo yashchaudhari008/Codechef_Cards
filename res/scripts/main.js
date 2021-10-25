@@ -180,10 +180,19 @@ function toggleMenu()
     }
 }
 
-function showAlert(message){
+function generateAlertButtons(buttons) {
+    let res = "";
+    buttons.forEach(self => {
+        res.push(`<button onclick="${self.action}" class="${self.className}">${self.content}</button>`);
+    });
+    return res;
+}
+
+function showAlert(message, buttons){
     alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
+    if(buttons && Array.isArray(buttons)) alertBackdrop.querySelector('#buttons').innerHTML = generateAlertButtons(buttons);
 }
 
 function closeAlert(){
