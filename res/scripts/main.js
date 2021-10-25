@@ -185,7 +185,7 @@ function promtRemove() {
     showAlert(`Are you sure you want to remove the user "${username}"?`, [{
         content: 'Remove User',
         className: 'btn-primary',
-        action: `deleteUser(${username})`
+        action: `deleteUser('${username}')`
     }, {
         content: 'Cancel',
         className: 'btn-secondary',
