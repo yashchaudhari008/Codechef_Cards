@@ -29,9 +29,7 @@ window.addEventListener('keypress', function (e) {
 });
 
 
-function deleteUser() {
-    const card = this.parentElement.parentElement;
-    const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
+function deleteUser(username) {
     users.delete(username);
     storeData(users);
     this.parentElement.parentElement.remove();
@@ -135,7 +133,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     e_delete.innerHTML = '&times;';
     e_delete.setAttribute('title', 'Delete');
     e_delete.classList.add('delete-cross');
-    e_delete.addEventListener('click', deleteUser);
+    e_delete.addEventListener('click', promtRemove);
 
     div_others.appendChild(e_delete);
     div_others.appendChild(e_highestRating);
@@ -181,8 +179,8 @@ function toggleMenu()
 }
 
 function promtRemove() {
-    let card;
-    let username;
+    const card = this.parentElement.parentElement;
+    const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
     
     showAlert(`Are you sure you want to remove the user "${username}"?`, [{
         content: 'Remove User',
@@ -192,7 +190,7 @@ function promtRemove() {
         content: 'Cancel',
         className: 'btn-secondary',
         action: 'closeAlert()'
-    }])
+    }]);
 }
 
 function generateAlertButtons(buttons) {
