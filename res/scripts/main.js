@@ -180,6 +180,21 @@ function toggleMenu()
     }
 }
 
+function promtRemove() {
+    let card;
+    let username;
+    
+    showAlert(`Are you sure you want to remove the user "${username}"?`, [{
+        content: 'Remove User',
+        className: 'btn-primary',
+        action: `deleteUser(${username})`
+    }, {
+        content: 'Cancel',
+        className: 'btn-secondary',
+        action: 'closeAlert()'
+    }])
+}
+
 function generateAlertButtons(buttons) {
     let res = "";
     buttons.forEach(self => {
@@ -193,6 +208,13 @@ function showAlert(message, buttons){
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
     if(buttons && Array.isArray(buttons)) alertBackdrop.querySelector('#buttons').innerHTML = generateAlertButtons(buttons);
+    else alertBackdrop.querySelector('#buttons').innterHTML = generateAlertButtons([
+        {
+            content: "Close",
+            className: "btn-primary",
+            action: "closeAlert()"
+        }
+    ]);
 }
 
 function closeAlert(){
