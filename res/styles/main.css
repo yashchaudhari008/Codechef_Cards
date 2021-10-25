@@ -128,6 +128,12 @@ footer {
     cursor: pointer;
     font-weight: bold;
 }
+
+#alert button.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--secondary-text);
+}
+
 #menu-bar button:hover, #alert button:hover {
     background-color: var(--appSurface);
     color: var(--appSurfaceText);
