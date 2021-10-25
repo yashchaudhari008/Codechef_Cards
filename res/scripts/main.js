@@ -52,9 +52,9 @@ function getDetails(username){
     .then( function (result) { return result.json() } )
     .then(
         function (data) {
-            // console.log(data);
-            if(data.status === 'Failed' && data.details === 'Invalid username'){
+            if(data.status === 'Failed' || data.details === 'Invalid username'){
                 showAlert(`"${username}" is an invalid username.`);
+                toggleMenu();
                 return;
             }
             const information = {
