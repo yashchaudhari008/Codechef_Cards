@@ -1,11 +1,11 @@
 :root {
     /*Fundamental Properties*/
-    --borderRadius : 10px;
+    --borderRadius : 12px;
 
     /*Colors*/
-    --appMain: rgb(0,0,0);
-    --appBackground: rgb(25, 25, 25);
-    --appSurface: rgba(255, 255, 255, 0.1);
+    --appMain: #1F1F21;
+    --appBackground: #25252A;
+    --appSurface: #333339;
     --appText: white;
     --appSurfaceText: rgba(255, 255, 255, 0.7);
 
@@ -14,7 +14,7 @@
     --secondary: rgb(168, 168, 168);
     --secondaryText: rgba(255, 255, 255, 0.9);
     --brighten: rgba(255, 255, 255, 0.1);
-    --darken: rgba(0, 0, 0, 0.5);
+    --darken: rgba(0, 0, 0, 0.1);
 
 }
 html, body {
@@ -22,7 +22,7 @@ html, body {
     margin: 0px;
     padding: 0px;
 
-    font-family: monospace;
+    font-family: sans-serif;
 }
 body {
     display: flex;
@@ -49,7 +49,7 @@ header #appName {
     flex: 1;
 
     font-size: 20px;
-    font-weight: 1000;
+    font-weight: 800;
 }
 header #github-logo {
     width: 25px;
@@ -57,7 +57,15 @@ header #github-logo {
     color: var(--appText);
 
     font-size: 25px;
+    opacity: 0.7;
+
+    transition:0.2s;
 }
+
+header #github-logo:hover {
+    opacity:1;
+}
+
 footer {
     padding: 10px;
 
@@ -101,20 +109,21 @@ footer {
 #menu-bar #username {
     width: 100px;
     padding: 8px;
-    border: 2px solid var(--appBackground);
+    border: 2px solid var(--darken);
     border-radius: var(--borderRadius);
     outline: 0;
-    background-color: var(--appSurface);
+    background-color: var(--darken);
     color: white;
 
-    font-family: monospace;
+    font-family: sans-serif;
 }
 #menu-bar #username::placeholder {
-    color: var(--primaryText);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 #menu-bar button, #alert button {
     width: min-content;
+
     margin: 0px;
     padding: 8px;
     padding-inline: 10px;
@@ -122,16 +131,18 @@ footer {
     border-radius: var(--borderRadius);
     outline: 0;
 
-    background-color: var(--primary);
-    color: var(--primaryText);
+    background-color: var(--brighten);
+    color: var(--appSurfaceText);
     
     cursor: pointer;
     font-weight: bold;
+
+    transition: 0.2s ease;
 }
 #menu-bar button:hover, #alert button:hover {
-    background-color: var(--appSurface);
-    color: var(--appSurfaceText);
-}  
+    background-color: var(--primary);
+    color: var(--appSurface);
+}
 
 #menu-content{
     margin: 5px;
@@ -154,7 +165,7 @@ footer {
 } 
 .card {
     padding: 10px;
-    padding-top: 25px;
+    padding-top: 30px;
     margin: 5px;
     width: 80%;
     max-width: 400px;
@@ -177,7 +188,6 @@ footer {
     padding-inline: 10px;
     margin: 0px;
 
-    font-family: 'Raleway';
     font-size: 25px;
 }
 .card .card-header .username {
@@ -279,6 +289,10 @@ footer {
 #alert-message {
     font-size: 15px;
     margin: 10px 0px 20px 0px;
+}
+
+a {
+    color:#E23668;
 }
 
 

@@ -105,6 +105,8 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
     div_name.appendChild(e_name);
     div_name.appendChild(e_username);
 
+    if(rating == 0) rating = "No Rating";
+
     const e_rating = document.createElement("p");
     e_rating.innerHTML = `Rating: ${rating} ${stars ? `(${stars})` : ""}`;
     e_rating.classList.add("rating");
