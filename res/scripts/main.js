@@ -43,7 +43,7 @@ function storeData(data) {
 function getDetails(username){
     username = username.toLowerCase().trim();
     if (users.has(username) && loadingFinished) {
-        showAlert(`Username "${username}" already exists.`);
+        showAlert(`Username "${username}" already exists.`, "Error");
         return;
     }
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
@@ -204,19 +204,17 @@ function generateAlertButtons(buttons) {
 function showAlert(message, title, buttons){
     alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
-    alertBackdrop.querySelector('#alert-message').textContent = message;
     
-    if(title && typeof title == 'string') alertBackdrop.querySelector('#alert-header').textContent = title;
+    let q = alertBackdrop.querySelector;
     
-    if(buttons && Array.isArray(buttons)) alertBackdrop.querySelector('#alert-buttons').innerHTML = generateAlertButtons(buttons);
-    else alertBackdrop.querySelector('#alert-buttons').innerHTML = '<button onclick="closeAlert()">Hide</a>'
-//     else alertBackdrop.querySelector('#buttons').innterHTML = generateAlertButtons([
-//         {
-//             content: "Hide",
-//             className: "btn-primary",
-//             action: "closeAlert()"
-//         }
-//     ]);
+    let msg = q('#alert-message');
+    let header = q('#alert-header');
+    let btns = q('#alert-buttons);
+                 
+    if(message) msg.textContent = message;
+    if(title) header.textCOntent = title;
+    if(buttons) btns.innerHTML = generateAlertButtons(buttons);
+    else btns.innerHTML = '<button onclick="closeAlert()">Close</button>'
 }
 
 function closeAlert(){
