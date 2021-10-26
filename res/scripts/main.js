@@ -38,7 +38,6 @@ function deleteUser(username) {
     storeData(users);
     this.parentElement.parentElement.remove();
     if (users.size === 0 ) {toggleMenu();}
-    reloadContent();
 }
 
 function storeData(data) {
@@ -190,12 +189,18 @@ function promtRemove() {
     showAlert(`Are you sure you want to remove the user "${username}"?`, "Confirmation", [{
         content: `Remove ${username}`,
         className: 'btn-primary',
-        action: `deleteUser('${username}');closeAlert()`
+        action: `promptRemove.action('${username}');`
     }, {
         content: 'Cancel',
         className: 'btn-secondary',
         action: 'closeAlert()'
     }]);
+}
+
+promtRemove.prototype.action = function(username) {
+    deleteUser(username);
+    closePrompt();
+    reloadContent();
 }
 
 function generateAlertButtons(buttons) {
