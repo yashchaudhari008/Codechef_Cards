@@ -6,12 +6,16 @@ let loadingFinished = false;
 let menuRoot = document.getElementById('menu-bar');
 const alertBackdrop = document.getElementById('backdrop');
 
-window.onload = () => {
+function reloadContent() {
     users = new Set(JSON.parse(localStorage.getItem('usernames')));
     if (users.size === 0 ) {toggleMenu(); stopSpinner();}
     for (let user of users){
             getDetails(user);
     }
+}
+
+window.onload = () => {
+    reloadContent();
 }
 
 function addUser() {
@@ -34,6 +38,7 @@ function deleteUser(username) {
     storeData(users);
     this.parentElement.parentElement.remove();
     if (users.size === 0 ) {toggleMenu();}
+    reloadContent();
 }
 
 function storeData(data) {
@@ -185,7 +190,7 @@ function promtRemove() {
     showAlert(`Are you sure you want to remove the user "${username}"?`, "Confirmation", [{
         content: `Remove ${username}`,
         className: 'btn-primary',
-        action: `deleteUser('${username}')`
+        action: `deleteUser('${username}');closeAlert()`
     }, {
         content: 'Cancel',
         className: 'btn-secondary',
