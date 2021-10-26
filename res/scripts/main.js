@@ -22,6 +22,12 @@ function addUser() {
     let username = document.getElementById('username').value;
     document.getElementById('username').value = '';
     if (username === '') return;
+
+    if (users.has(username) && loadingFinished) {
+        showAlert(`Username "${username}" already exists.`, "Error");
+        return;
+    }
+
     getDetails(username);
     toggleMenu();
 }
@@ -34,10 +40,9 @@ window.addEventListener('keypress', function (e) {
 
 
 function deleteUser(username) {
-    users.delete(username);
+    users.delete(username.toLowerCase());
     storeData(users);
-    this.parentElement.parentElement.remove();
-    if (users.size === 0 ) {toggleMenu();}
+    if (users.size === 0) {toggleMenu();}
 }
 
 function storeData(data) {
@@ -46,10 +51,6 @@ function storeData(data) {
 
 function getDetails(username){
     username = username.toLowerCase().trim();
-    if (users.has(username) && loadingFinished) {
-        showAlert(`Username "${username}" already exists.`, "Error");
-        return;
-    }
     fetch(`https://competitive-coding-api.herokuapp.com/api/codechef/${username}`)
     .then( function (result) { return result.json() } )
     .then(
@@ -59,6 +60,7 @@ function getDetails(username){
                 showAlert(`"${username}" is an invalid username.`, "Error");
                 return;
             }
+
             const information = {
                 name: data.user_details.name,
                 username: data.user_details.username,
@@ -91,6 +93,7 @@ function createCard({name, username, rating, highestRating, stars, countryRank, 
 
     const root = document.createElement("div");
     root.classList.add("card");
+    root.id = `#uuid-${username.split(':').slice(-1)[0]}`;
 
     const div_name = document.createElement("div"); 
     div_name.classList.add("card-header");
@@ -199,8 +202,9 @@ function promtRemove() {
 
 function promptRemoveAction(username) {
     deleteUser(username);
-    closePrompt();
-    reloadContent();
+
+    closeAlert();
+    document.getElementById(`#uuid-${username}`).remove();
 }
 
 function generateAlertButtons(buttons) {
@@ -215,10 +219,11 @@ function showAlert(message, title, buttons){
     alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
     
-    if(message) alertBackdrop.querySelector('#alert-message').textContent=message;
-    if(title)   alertBackdrop.querySelector('#alert-header').textContent =title;
-    if(buttons) alertBackdrop.querySelector('#alert-buttons').innerHTML  =generateAlertButtons(buttons);
-    else alertBackdrop.innerHTML = generateAlertButtons([{ content: 'Close', className: 'btn-primary', action: 'closeAlert()' }]);
+    if(message) alertBackdrop.querySelector('#alert').querySelector('#alert-message').textContent=message;
+    if(title)   alertBackdrop.querySelector('#alert').querySelector('#alert-header').textContent =title;
+    if(buttons) alertBackdrop.querySelector('#alert').querySelector('#alert-buttons').innerHTML  =generateAlertButtons(buttons);
+    else alertBackdrop.querySelector('#alert').querySelector('#alert-buttons').innerHTML =
+        generateAlertButtons([{ content: 'Close', className: 'btn-primary', action: 'closeAlert()' }]);
 }
 
 function closeAlert(){
