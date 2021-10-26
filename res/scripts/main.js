@@ -205,14 +205,15 @@ function showAlert(message, buttons){
     alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
-    if(buttons && Array.isArray(buttons)) alertBackdrop.querySelector('#buttons').innerHTML = generateAlertButtons(buttons);
-    else alertBackdrop.querySelector('#buttons').innterHTML = generateAlertButtons([
-        {
-            content: "Close",
-            className: "btn-primary",
-            action: "closeAlert()"
-        }
-    ]);
+    if(buttons && Array.isArray(buttons)) alertBackdrop.querySelector('#alert-buttons').innerHTML = generateAlertButtons(buttons);
+    else alertBackdrop.querySelector('#alert-buttons').innerHTML = '<button onclick="closeAlert()">Hide</a>'
+//     else alertBackdrop.querySelector('#buttons').innterHTML = generateAlertButtons([
+//         {
+//             content: "Hide",
+//             className: "btn-primary",
+//             action: "closeAlert()"
+//         }
+//     ]);
 }
 
 function closeAlert(){
