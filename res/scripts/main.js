@@ -183,7 +183,7 @@ function promtRemove() {
     const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
     
     showAlert(`Are you sure you want to remove the user "${username}"?`, "Confirmation", [{
-        content: 'Remove User',
+        content: `Remove ${username}`,
         className: 'btn-primary',
         action: `deleteUser('${username}')`
     }, {
