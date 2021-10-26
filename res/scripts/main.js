@@ -55,6 +55,7 @@ function getDetails(username){
             // console.log(data);
             if(data.status === 'Failed' && data.details === 'Invalid username'){
                 showAlert(`"${username}" is an invalid username.`);
+                toggleMenu();
                 return;
             }
             const information = {
