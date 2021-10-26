@@ -210,16 +210,10 @@ function showAlert(message, title, buttons){
     alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
     
-    let q = alertBackdrop.querySelector;
-    
-    let msg = q('#alert-message');
-    let header = q('#alert-header');
-    let btns = q('#alert-buttons');
-                 
-    if(message) msg.textContent = message;
-    if(title) header.textCOntent = title;
-    if(buttons) btns.innerHTML = generateAlertButtons(buttons);
-    else btns.innerHTML = '<button onclick="closeAlert()">Close</button>';
+    if(message) alertBackdrop.querySelector('#alert-message').textContent=message;
+    if(title)   alertBackdrop.querySelector('#alert-header').textContent =title;
+    if(buttons) alertBackdrop.querySelector('#alert-buttons').innerHTML  =generateAlertButtons(buttons);
+    else btns.innerHTML = generateAlertButtons([{ content: 'Close', className: 'btn-primary', action: 'closeAlert()' }]);
 }
 
 function closeAlert(){
