@@ -196,7 +196,7 @@ function promtRemove() {
 function generateAlertButtons(buttons) {
     let res = "";
     buttons.forEach(self => {
-        res.push(`<button onclick="${self.action}" class="${self.className}">${self.content}</button>`);
+        res = `${res}<button onclick="${self.action}" class="${self.className}">${self.content}</button>`
     });
     return res;
 }
