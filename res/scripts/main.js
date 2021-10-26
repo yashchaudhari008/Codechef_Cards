@@ -187,9 +187,9 @@ function promtRemove() {
     const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
     
     showAlert(`Are you sure you want to remove the user "${username}"?`, "Confirmation", [{
-        content: `Remove ${username}`,
+        content: `Remove User`,
         className: 'btn-primary',
-        action: `promptRemove.action('${username}');`
+        action: `promptRemoveAction('${username}');`
     }, {
         content: 'Cancel',
         className: 'btn-secondary',
@@ -197,7 +197,7 @@ function promtRemove() {
     }]);
 }
 
-promtRemove.prototype.action = function(username) {
+function promptRemoveAction(username) {
     deleteUser(username);
     closePrompt();
     reloadContent();
@@ -206,7 +206,7 @@ promtRemove.prototype.action = function(username) {
 function generateAlertButtons(buttons) {
     let res = "";
     buttons.forEach(self => {
-        res = `${res}<button onclick="${self.action}" class="${self.className}">${self.content}</button>`
+        res = `${res}<button onclick="${self.action}" class="${self.className}">${self.content}</button> `
     });
     return res;
 }
@@ -218,7 +218,7 @@ function showAlert(message, title, buttons){
     if(message) alertBackdrop.querySelector('#alert-message').textContent=message;
     if(title)   alertBackdrop.querySelector('#alert-header').textContent =title;
     if(buttons) alertBackdrop.querySelector('#alert-buttons').innerHTML  =generateAlertButtons(buttons);
-    else btns.innerHTML = generateAlertButtons([{ content: 'Close', className: 'btn-primary', action: 'closeAlert()' }]);
+    else alertBackdrop.innerHTML = generateAlertButtons([{ content: 'Close', className: 'btn-primary', action: 'closeAlert()' }]);
 }
 
 function closeAlert(){
