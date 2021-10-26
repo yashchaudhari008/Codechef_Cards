@@ -209,12 +209,12 @@ function showAlert(message, title, buttons){
     
     let msg = q('#alert-message');
     let header = q('#alert-header');
-    let btns = q('#alert-buttons);
+    let btns = q('#alert-buttons');
                  
     if(message) msg.textContent = message;
     if(title) header.textCOntent = title;
     if(buttons) btns.innerHTML = generateAlertButtons(buttons);
-    else btns.innerHTML = '<button onclick="closeAlert()">Close</button>'
+    else btns.innerHTML = '<button onclick="closeAlert()">Close</button>';
 }
 
 function closeAlert(){
