@@ -52,7 +52,7 @@ function getDetails(username){
         function (data) {
             // console.log(data);
             if(data.status === 'Failed' && data.details === 'Invalid username'){
-                showAlert(`"${username}" is an invalid username.`);
+                showAlert(`"${username}" is an invalid username.`, "Error");
                 return;
             }
             const information = {
@@ -182,7 +182,7 @@ function promtRemove() {
     const card = this.parentElement.parentElement;
     const username = card.getElementsByClassName('username')[0].innerHTML.slice(1,-1);
     
-    showAlert(`Are you sure you want to remove the user "${username}"?`, [{
+    showAlert(`Are you sure you want to remove the user "${username}"?`, "Confirmation", [{
         content: 'Remove User',
         className: 'btn-primary',
         action: `deleteUser('${username}')`
@@ -201,10 +201,11 @@ function generateAlertButtons(buttons) {
     return res;
 }
 
-function showAlert(message, buttons){
+function showAlert(message, title, buttons){
     alertBackdrop.classList.toggle('hide');
     alertBackdrop.querySelector('#alert').classList.toggle('hide');
     alertBackdrop.querySelector('#alert-message').textContent = message;
+    if(title && typeof title == 'string') alertBackdrop.querySelector('#alert-title').textContent = title;
     if(buttons && Array.isArray(buttons)) alertBackdrop.querySelector('#alert-buttons').innerHTML = generateAlertButtons(buttons);
     else alertBackdrop.querySelector('#alert-buttons').innerHTML = '<button onclick="closeAlert()">Hide</a>'
 //     else alertBackdrop.querySelector('#buttons').innterHTML = generateAlertButtons([
