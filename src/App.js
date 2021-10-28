@@ -44,7 +44,7 @@ export default function App() {
 
 	// Loading Stored User And Fetching User Data. [RUNS ONLY ONCE]
 	useEffect(() => {
-		let user_temp = JSON.parse(localStorage.getItem("users"));
+		let user_temp = JSON.parse(localStorage.getItem("usernames"));
 		if (user_temp) {
 			setUsers(user_temp);
 			user_temp.forEach((username) => {
@@ -76,7 +76,7 @@ export default function App() {
 		let users_temp = new Set(users);
 		users_temp.delete(username);
 		setUsers(Array.from(users_temp));
-		localStorage.setItem("users", JSON.stringify(Array.from(users_temp)));
+		localStorage.setItem("usernames", JSON.stringify(Array.from(users_temp)));
 	};
 
 	return (
