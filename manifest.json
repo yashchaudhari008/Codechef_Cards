@@ -1,0 +1,8 @@
+{
+	"short_name": "Codechef Cards",
+	"name": "Codechef Cards",
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "rgb(218, 218, 218)",
+	"background_color": "rgb(25,25,25)"
+}
