@@ -4,7 +4,8 @@ We all love contributions from everyone and about everything that will make the 
 
 Everyone must follow the code of conduct thoughtbot's project codebases, issue trackers, mailing lists, etc.
 
-# Pull Request Instructions
+## Pull Request Instructions
+
 1. Find/Create an [issue](https://github.com/yashchaudhari008/Codechef_Cards/issues) to work on.
 2. Fork the repository.
 3. Create new branch "test".
@@ -14,9 +15,12 @@ Everyone must follow the code of conduct thoughtbot's project codebases, issue t
 7. Wait till PR get reviewed ✔ .
 
 ### Please Note, Bad Pull Requests Are Not Accepted ❌!
+
+- Changes other than stated issue/bug.
 - Make sure you don't make a single line changes like renaming a variable.
 - If your PR contains indentation changes, it will be not accepted.
 - Do not make duplicate PRs.
 
-- - -
+---
+
 THANKS ! Keep Contributing.✌
