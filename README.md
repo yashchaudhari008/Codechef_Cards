@@ -1,5 +1,9 @@
 # Codechef Cards
 
+[![React WebApp CI/CD](https://github.com/yashchaudhari008/Codechef_Cards/actions/workflows/node.js.yml/badge.svg)](https://github.com/yashchaudhari008/Codechef_Cards/actions/workflows/node.js.yml)
+![GitHub repo size](https://img.shields.io/github/repo-size/yashchaudhari008/Codechef_Cards)
+![GitHub](https://img.shields.io/github/license/yashchaudhari008/Codechef_Cards)
+
 A WebApp to check friend's [codechef](https://www.codechef.com/) rating and other details.
 
 1. Just add username and track your friends progress!!
