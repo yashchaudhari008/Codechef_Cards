@@ -48,7 +48,14 @@ export default function App() {
 						user_details: { ...data.user_details, username },
 					});
 				} else {
-					console.log("Invalid Username");
+					setShowModal((previous) => {
+						return {
+							...previous,
+							visible: true,
+							type: "alert",
+							msg: "User not found!",
+						};
+					});
 					removeUser(username);
 				}
 			})
