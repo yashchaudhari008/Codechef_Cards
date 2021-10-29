@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import AddUserMenu from "./AddUserMenu";
@@ -21,8 +21,21 @@ export default function App() {
 		acceptFunc: null,
 	});
 
+	// To Remove User From 'users' And 'localStorage'.
+	const removeUser = useCallback((username) => {
+		setUsersData((usersData) =>
+			usersData.filter((data) => data.user_details.username !== username)
+		);
+		setUsers(users => {
+			let users_temp = users.filter(user => user !== username)
+			localStorage.setItem("usernames", JSON.stringify(users_temp));
+
+			return users_temp;
+		});
+	}, []);
+
 	// To Fetch User Data From API.
-	const fetchData = (username) => {
+	const fetchData = useCallback((username) => {
 		fetch(api_url + username)
 			.then((response) => {
 				return response.json();
@@ -40,7 +53,7 @@ export default function App() {
 				}
 			})
 			.catch((error) => console.log("Error:", error));
-	};
+	}, [removeUser]);
 
 	// Loading Stored User And Fetching User Data. [RUNS ONLY ONCE]
 	useEffect(() => {
@@ -53,7 +66,7 @@ export default function App() {
 		} else {
 			setUsers([]);
 		}
-	}, []);
+	}, [fetchData]);
 
 	// Storing User Data After Fecthing.
 	useEffect(() => {
@@ -67,17 +80,6 @@ export default function App() {
 		setUsersData(() => [...usersData, userFetched]);
 		setUserFetched([]);
 	}, [userFetched, usersData]);
-
-	// To Remove User From 'users' And 'localStorage'.
-	const removeUser = (username) => {
-		setUsersData((usersData) =>
-			usersData.filter((data) => data.user_details.username !== username)
-		);
-		let users_temp = new Set(users);
-		users_temp.delete(username);
-		setUsers(Array.from(users_temp));
-		localStorage.setItem("usernames", JSON.stringify(Array.from(users_temp)));
-	};
 
 	return (
 		<div className="App">
