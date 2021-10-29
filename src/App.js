@@ -53,7 +53,7 @@ export default function App() {
 							...previous,
 							visible: true,
 							type: "alert",
-							msg: "User not found!",
+							msg: "You entered Invalid Username.",
 						};
 					});
 					removeUser(username);
