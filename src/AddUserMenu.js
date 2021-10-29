@@ -42,7 +42,10 @@ export default function AddUserMenu({
 				// Add 'username' To 'users' And 'localStorage'.
 				users_temp.add(username);
 				setUsers(Array.from(users_temp));
-				localStorage.setItem("users", JSON.stringify(Array.from(users_temp)));
+				localStorage.setItem(
+					"usernames",
+					JSON.stringify(Array.from(users_temp))
+				);
 				fetchData(username);
 			}
 			usernameRef.current.value = "";
