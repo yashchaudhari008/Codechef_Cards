@@ -32,7 +32,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 - VS Code Extensions Recommended
-  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscodeesbenp.prettier-vscode)
+  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
 
 ## 🤝 Contributing
