@@ -14,6 +14,7 @@
 	--darken: rgba(0, 0, 0, 0.1);
 	--brighten: rgba(255, 255, 255, 0.1);
 
+	--backDrop: rgba(0, 0, 0, 0.5);
 	--scrollbarHandle: rgba(255, 255, 255, 0.1);
 
 	--defaultShadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.3);
@@ -84,6 +85,21 @@ footer {
 	width: 100%;
 	display: grid;
 	justify-items: center;
+}
+
+.backDrop {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	background-color: var(--backDrop);
+
+	display: grid;
+	place-items: center;
+
+	user-select: none;
 }
 
 /* Scrollbar */
