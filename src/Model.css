@@ -1,20 +1,4 @@
-/* Backdrop & Modal */
-.backDrop {
-	--backDrop: rgba(0, 0, 0, 0.5);
-
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	background-color: var(--backDrop);
-
-	display: grid;
-	place-items: center;
-
-	user-select: none;
-}
+/* Modal */
 .Modal {
 	--modalBackground: rgb(45, 45, 45);
 	--modalAccent: rgb(0, 0, 0);

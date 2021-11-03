@@ -1,0 +1,17 @@
+/* Spinner */
+.Spinner {
+	color: var(--primary);
+
+	display: grid;
+	place-items: center;
+
+	font-size: 5rem;
+
+	animation: rotate-full 1s ease-in-out infinite;
+}
+
+@keyframes rotate-full {
+	to {
+		transform: rotate(360deg);
+	}
+}

@@ -4,12 +4,14 @@ import Footer from "./Footer";
 import AddUserMenu from "./AddUserMenu";
 import Card from "./Card";
 import Modal from "./Modal";
+import Spinner from "./Spinner";
 
 export default function App() {
 	const api_url = "https://competitive-coding-api.herokuapp.com/api/codechef/";
 
 	const [users, setUsers] = useState([]); // Current Users.
 	const [usersData, setUsersData] = useState([]); // Current Users Data.
+	const [isLoading, setIsLoading] = useState(true);
 
 	const [userFetched, setUserFetched] = useState([]); // Recently FETCHED User.
 
@@ -26,8 +28,8 @@ export default function App() {
 		setUsersData((usersData) =>
 			usersData.filter((data) => data.user_details.username !== username)
 		);
-		setUsers(users => {
-			let users_temp = users.filter(user => user !== username)
+		setUsers((users) => {
+			let users_temp = users.filter((user) => user !== username);
 			localStorage.setItem("usernames", JSON.stringify(users_temp));
 
 			return users_temp;
@@ -35,32 +37,35 @@ export default function App() {
 	}, []);
 
 	// To Fetch User Data From API.
-	const fetchData = useCallback((username) => {
-		fetch(api_url + username)
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				// console.log(data);
-				if (data.status === "Success") {
-					setUserFetched({
-						...data,
-						user_details: { ...data.user_details, username },
-					});
-				} else {
-					setShowModal((previous) => {
-						return {
-							...previous,
-							visible: true,
-							type: "alert",
-							msg: "You entered Invalid Username.",
-						};
-					});
-					removeUser(username);
-				}
-			})
-			.catch((error) => console.log("Error:", error));
-	}, [removeUser]);
+	const fetchData = useCallback(
+		(username) => {
+			fetch(api_url + username)
+				.then((response) => {
+					return response.json();
+				})
+				.then((data) => {
+					// console.log(data);
+					if (data.status === "Success") {
+						setUserFetched({
+							...data,
+							user_details: { ...data.user_details, username },
+						});
+					} else {
+						setShowModal((previous) => {
+							return {
+								...previous,
+								visible: true,
+								type: "alert",
+								msg: "You entered Invalid Username.",
+							};
+						});
+						removeUser(username);
+					}
+				})
+				.catch((error) => console.log("Error:", error));
+		},
+		[removeUser]
+	);
 
 	// Loading Stored User And Fetching User Data. [RUNS ONLY ONCE]
 	useEffect(() => {
@@ -88,6 +93,13 @@ export default function App() {
 		setUserFetched([]);
 	}, [userFetched, usersData]);
 
+	useEffect(() => {
+		if (users.length === usersData.length) {
+			setIsLoading(false);
+		} else {
+			setIsLoading(true);
+		}
+	}, [users, usersData]);
 	return (
 		<div className="App">
 			<Header />
@@ -116,9 +128,12 @@ export default function App() {
 						})}
 				</div>
 
-				{showModal.visible && (
+				{(isLoading || showModal.visible) && (
 					<div className="backDrop">
-						<Modal modalData={showModal} setShowModal={setShowModal} />
+						{isLoading && <Spinner />}
+						{showModal.visible && (
+							<Modal modalData={showModal} setShowModal={setShowModal} />
+						)}
 					</div>
 				)}
 			</div>
