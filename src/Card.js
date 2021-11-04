@@ -17,26 +17,32 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 	// To Give Accent Color To Card.
 	const colorClass = `stars${stars[0]}`;
 
-	// To show/hide more details in small screens
-	const [isMoreDetailsShown, setMoreDetailsShown] = useState("");
-	const [width, setWidth] = useState(window.innerWidth);
+	// To Toggle moreDetails Card State.
+	const [isMoreDetailsShown, setMoreDetailsShown] = useState(false);
 
-	function handleWindowSizeChange() {
-		setWidth(window.innerWidth);
+	// To Handle Screen Size Changes.
+	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+	const [isScreenSmall, setIsScreenSmall] = useState(false);
+
+	// Handling Screen Resize.
+	function handleResize() {
+		setScreenWidth(window.innerWidth);
 	}
-
 	useEffect(() => {
-		window.addEventListener("resize", handleWindowSizeChange);
+		window.addEventListener("resize", handleResize);
 		return () => {
-			window.removeEventListener("resize", handleWindowSizeChange);
+			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 
-	const isDeviceMobile = width <= 768;
-
-	const fnToggleMoreDetails = () => {
-		setMoreDetailsShown((prev) => !prev);
-	};
+	// Checking Whether Screen Size Is Small.
+	useEffect(() => {
+		if (screenWidth < 672) {
+			setIsScreenSmall(true);
+		} else {
+			setIsScreenSmall(false);
+		}
+	}, [screenWidth]);
 
 	return (
 		<div className={`cardBox ${colorClass}`}>
@@ -72,19 +78,17 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 					</button>
 				</div>
 
-				{isDeviceMobile && (
+				{isScreenSmall && (
 					<button
-						id="btnViewMoreDetails"
-						type="button"
 						className="cardBtn"
-						onClick={fnToggleMoreDetails}
+						onClick={() => setMoreDetailsShown((prev) => !prev)}
 					>
-						<span>{isMoreDetailsShown ? "Close" : "View"} details</span>
+						<p>{isMoreDetailsShown ? "Close" : "View"} details</p>
 					</button>
 				)}
 			</div>
 
-			{(isMoreDetailsShown || !isDeviceMobile) && (
+			{(isMoreDetailsShown || !isScreenSmall) && (
 				<div className="moreDetails">
 					<div className="detailsItemWrapper">
 						<h1 className="wrapperHeading">Ranking</h1>

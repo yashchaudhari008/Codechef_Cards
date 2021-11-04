@@ -81,7 +81,7 @@
 /* Subcard */
 .moreDetails {
 	flex: 1;
-	min-width: 200px;
+	min-width: 250px;
 
 	margin: 0.1rem 0.8rem;
 	padding: 1rem 0.5rem;
@@ -92,6 +92,8 @@
 	justify-content: center;
 
 	background-color: var(--surfaceCardTop); /* Global Var*/
+
+	white-space: nowrap;
 }
 .detailsItemWrapper {
 	padding: 0.5rem 0.5rem;
