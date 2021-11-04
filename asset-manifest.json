@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Codechef_Cards/static/css/main.a1aa3235.chunk.css",
-    "main.js": "/Codechef_Cards/static/js/main.cdca42c1.chunk.js",
-    "main.js.map": "/Codechef_Cards/static/js/main.cdca42c1.chunk.js.map",
+    "main.css": "/Codechef_Cards/static/css/main.09086d73.chunk.css",
+    "main.js": "/Codechef_Cards/static/js/main.8255033e.chunk.js",
+    "main.js.map": "/Codechef_Cards/static/js/main.8255033e.chunk.js.map",
     "runtime-main.js": "/Codechef_Cards/static/js/runtime-main.e4cdb2c4.js",
     "runtime-main.js.map": "/Codechef_Cards/static/js/runtime-main.e4cdb2c4.js.map",
     "static/js/2.b1352a63.chunk.js": "/Codechef_Cards/static/js/2.b1352a63.chunk.js",
     "static/js/2.b1352a63.chunk.js.map": "/Codechef_Cards/static/js/2.b1352a63.chunk.js.map",
     "index.html": "/Codechef_Cards/index.html",
-    "static/css/main.a1aa3235.chunk.css.map": "/Codechef_Cards/static/css/main.a1aa3235.chunk.css.map",
+    "static/css/main.09086d73.chunk.css.map": "/Codechef_Cards/static/css/main.09086d73.chunk.css.map",
     "static/js/2.b1352a63.chunk.js.LICENSE.txt": "/Codechef_Cards/static/js/2.b1352a63.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e4cdb2c4.js",
     "static/js/2.b1352a63.chunk.js",
-    "static/css/main.a1aa3235.chunk.css",
-    "static/js/main.cdca42c1.chunk.js"
+    "static/css/main.09086d73.chunk.css",
+    "static/js/main.8255033e.chunk.js"
   ]
 }
