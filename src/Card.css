@@ -1,143 +1,143 @@
 /* Card */
 .cardBox {
-    --accent: var(--primary);
+	--accent: var(--primary);
 
-    margin-top: 1rem;
-    padding: 1rem;
-    width: 80%;
-    max-width: var(--maxContentWidth); /* Global Var*/
-    border-radius: var(--borderRadius); /* Global Var*/
-    border: 2px solid var(--accent);
-    box-shadow: var(--defaultShadow); /* Global Var*/
+	margin-top: 1rem;
+	padding: 1rem;
+	width: 80%;
+	max-width: var(--maxContentWidth); /* Global Var*/
+	border-radius: var(--borderRadius); /* Global Var*/
+	border: 2px solid var(--accent);
+	box-shadow: var(--defaultShadow); /* Global Var*/
 
-    background-color: var(--surfaceCardBack); /* Global Var*/
+	background-color: var(--surfaceCardBack); /* Global Var*/
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 
-    text-align: center;
+	text-align: center;
 }
 .cardDetails {
-    --panelMaxWidth: 90%;
+	--panelMaxWidth: 90%;
 
-    margin: 0.1rem 0.8rem;
-    padding: 1rem 0.5rem;
-    width: 220px;
+	margin: 0.1rem 0.8rem;
+	padding: 1rem 0.5rem;
+	width: 220px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 .cardDetails h1 {
-    color: var(--accent);
+	color: var(--accent);
 
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 .cardRating {
-    padding: 0.2rem 0.5rem;
-    width: var(--panelMaxWidth);
-    border-radius: var(--borderRadius); /* Global Var*/
+	padding: 0.2rem 0.5rem;
+	width: var(--panelMaxWidth);
+	border-radius: var(--borderRadius); /* Global Var*/
 
-    background-color: var(--accent);
-    color: black;
+	background-color: var(--accent);
+	color: black;
 
-    font-size: 1.2rem;
-    font-weight: bold;
+	font-size: 1.2rem;
+	font-weight: bold;
 }
 .cardHighestRating {
-    padding: 0.5rem 0.5rem;
-    margin-top: 0.2rem;
-    border-radius: var(--borderRadius); /* Global Var*/
-    width: var(--panelMaxWidth);
+	padding: 0.5rem 0.5rem;
+	margin-top: 0.2rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+	width: var(--panelMaxWidth);
 
-    background-color: var(--surfaceCardTop); /* Global Var*/
-    color: var(--surfaceCardText); /* Global Var*/
+	background-color: var(--surfaceCardTop); /* Global Var*/
+	color: var(--surfaceCardText); /* Global Var*/
 
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 
-    text-align: center;
+	text-align: center;
 }
 .cardHighestRating p {
-    color: var(--accent);
+	color: var(--accent);
 
-    font-weight: bolder;
+	font-weight: bolder;
 }
 .cardBtn {
-    padding: 0.45rem 0.65rem;
-    border-radius: var(--borderRadius); /* Global Var*/
-    outline: 0;
-    border: 0;
+	padding: 0.45rem 0.65rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+	outline: 0;
+	border: 0;
 
-    background-color: var(--accent);
+	background-color: var(--accent);
 
-    display: inline-flex;
-    gap: 0.5rem;
+	display: inline-flex;
+	gap: 0.5rem;
 }
 /* Subcard */
 .moreDetails {
-    flex: 1;
-    min-width: 200px;
+	flex: 1;
+	min-width: 200px;
 
-    margin: 0.1rem 0.8rem;
-    padding: 1rem 0.5rem;
-    border-radius: var(--borderRadius); /* Global Var*/
+	margin: 0.1rem 0.8rem;
+	padding: 1rem 0.5rem;
+	border-radius: var(--borderRadius); /* Global Var*/
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
-    background-color: var(--surfaceCardTop); /* Global Var*/
+	background-color: var(--surfaceCardTop); /* Global Var*/
 }
 .detailsItemWrapper {
-    padding: 0.5rem 0.5rem;
-    margin: 0.2rem;
-    border-radius: var(--borderRadius); /* Global Var*/
+	padding: 0.5rem 0.5rem;
+	margin: 0.2rem;
+	border-radius: var(--borderRadius); /* Global Var*/
 
-    background-color: var(--darken); /* Global Var*/
+	background-color: var(--darken); /* Global Var*/
 }
 .wrapperHeading {
-    margin-left: 0.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
+	margin-left: 0.3rem;
+	margin-bottom: 0.5rem;
+	color: var(--accent);
 
-    font-size: 1.1rem;
-    text-align: start;
+	font-size: 1.1rem;
+	text-align: start;
 }
 .detailsItem {
-    padding: 0.2rem 0.6rem;
-    margin: 0.2rem;
-    border-radius: var(--borderRadius); /* Global Var*/
+	padding: 0.2rem 0.6rem;
+	margin: 0.2rem;
+	border-radius: var(--borderRadius); /* Global Var*/
 
-    color: var(--surfaceCardText); /* Global Var*/
+	color: var(--surfaceCardText); /* Global Var*/
 
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 /* Accent Colours */
 .stars1 {
-    --accent: #e0e0e0 !important;
+	--accent: #e0e0e0 !important;
 }
 .stars2 {
-    --accent: #29d332 !important;
+	--accent: #29d332 !important;
 }
 .stars3 {
-    --accent: #0055ff !important;
+	--accent: #0055ff !important;
 }
 .stars4 {
-    --accent: #9900ff !important;
+	--accent: #9900ff !important;
 }
 .stars5 {
-    --accent: #fbff04 !important;
+	--accent: #fbff04 !important;
 }
 .stars6 {
-    --accent: #ff8000 !important;
+	--accent: #ff8000 !important;
 }
 .stars7 {
-    --accent: #ff0022 !important;
+	--accent: #ff0022 !important;
 }
