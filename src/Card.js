@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Card.css";
 import { FaUserTimes } from "react-icons/fa";
 
@@ -16,6 +16,33 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 
 	// To Give Accent Color To Card.
 	const colorClass = `stars${stars[0]}`;
+
+	// To Toggle moreDetails Card State.
+	const [isMoreDetailsShown, setMoreDetailsShown] = useState(false);
+
+	// To Handle Screen Size Changes.
+	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+	const [isScreenSmall, setIsScreenSmall] = useState(false);
+
+	// Handling Screen Resize.
+	function handleResize() {
+		setScreenWidth(window.innerWidth);
+	}
+	useEffect(() => {
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
+	// Checking Whether Screen Size Is Small.
+	useEffect(() => {
+		if (screenWidth < 672) {
+			setIsScreenSmall(true);
+		} else {
+			setIsScreenSmall(false);
+		}
+	}, [screenWidth]);
 
 	return (
 		<div className={`cardBox ${colorClass}`}>
@@ -50,31 +77,43 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 						<p>Delete</p>
 					</button>
 				</div>
+
+				{isScreenSmall && (
+					<button
+						className="cardBtn"
+						onClick={() => setMoreDetailsShown((prev) => !prev)}
+					>
+						<p>{isMoreDetailsShown ? "Close" : "View"} details</p>
+					</button>
+				)}
 			</div>
-			<div className="moreDetails">
-				<div className="detailsItemWrapper">
-					<h1 className="wrapperHeading">Ranking</h1>
-					<div className="detailsItem">
-						<p>Global Rank:</p>
-						<p>{global_rank}</p>
+
+			{(isMoreDetailsShown || !isScreenSmall) && (
+				<div className="moreDetails">
+					<div className="detailsItemWrapper">
+						<h1 className="wrapperHeading">Ranking</h1>
+						<div className="detailsItem">
+							<p>Global Rank:</p>
+							<p>{global_rank}</p>
+						</div>
+						<div className="detailsItem">
+							<p>Country Rank:</p>
+							<p>{country_rank}</p>
+						</div>
 					</div>
-					<div className="detailsItem">
-						<p>Country Rank:</p>
-						<p>{country_rank}</p>
+					<div className="detailsItemWrapper">
+						<h1 className="wrapperHeading">Problem Solved</h1>
+						<div className="detailsItem">
+							<p>Fully:</p>
+							<p>{fully_solved.count}</p>
+						</div>
+						<div className="detailsItem">
+							<p>Partially:</p>
+							<p>{partially_solved.count}</p>
+						</div>
 					</div>
 				</div>
-				<div className="detailsItemWrapper">
-					<h1 className="wrapperHeading">Problem Solved</h1>
-					<div className="detailsItem">
-						<p>Fully:</p>
-						<p>{fully_solved.count}</p>
-					</div>
-					<div className="detailsItem">
-						<p>Partially:</p>
-						<p>{partially_solved.count}</p>
-					</div>
-				</div>
-			</div>
+			)}
 		</div>
 	);
 }
