@@ -7,11 +7,11 @@
 	--primary: rgb(218, 218, 218);
 	--primaryText: rgb(10, 10, 10);
 
-	--surfaceCardBack: rgb(45, 45, 45);
-	--surfaceCardTop: rgb(65, 65, 65);
+	--surfaceCardBack: rgb(38, 38, 38);
+	--surfaceCardTop: rgb(55, 55, 55);
 	--surfaceCardText: rgb(230, 230, 230);
 
-	--darken: rgba(0, 0, 0, 0.1);
+	--darken: rgba(0, 0, 0, 0.2);
 	--brighten: rgba(255, 255, 255, 0.1);
 
 	--backDrop: rgba(0, 0, 0, 0.5);

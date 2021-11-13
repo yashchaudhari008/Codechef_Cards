@@ -37,7 +37,7 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 
 	// Checking Whether Screen Size Is Small.
 	useEffect(() => {
-		if (screenWidth < 672) {
+		if (screenWidth < 669) {
 			setIsScreenSmall(true);
 		} else {
 			setIsScreenSmall(false);
