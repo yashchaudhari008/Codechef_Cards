@@ -36,6 +36,18 @@
 
 	text-transform: capitalize;
 }
+.cardUsername {
+	padding: 0.2rem 0.3rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+
+	color: var(--surfaceCardText); /* Global Var*/
+
+	text-decoration: none;
+}
+.cardUsername:hover {
+	background-color: var(--accent);
+	color: black;
+}
 .cardRating {
 	padding: 0.2rem 0.5rem;
 	width: var(--panelMaxWidth);

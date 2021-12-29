@@ -48,7 +48,15 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 		<div className={`cardBox ${colorClass}`}>
 			<div className="cardDetails">
 				<h1>{user_details.name}</h1>
-				<p>({user_details.username})</p>
+				<a
+					class="cardUsername"
+					href={"https://codechef.com/users/" + user_details.username}
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					({user_details.username})
+				</a>
+
 				<div className="cardRating">
 					<p>
 						{stars} | {rating}
