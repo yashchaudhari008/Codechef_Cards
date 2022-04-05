@@ -1,4 +1,6 @@
 # Codechef Cards
+> Project is obsolete! API used in this project is under maintenance.
+
 
 [![React WebApp CI/CD](https://github.com/yashchaudhari008/Codechef_Cards/actions/workflows/node.js.yml/badge.svg)](https://github.com/yashchaudhari008/Codechef_Cards/actions/workflows/node.js.yml)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yashchaudhari008/Codechef_Cards)
@@ -10,7 +12,7 @@ A WebApp to check friend's [codechef](https://www.codechef.com/) rating and othe
 2. Press delete to remove friend
 3. Make sure to ⭐ the repo and share with your friends.
 
-> This app is using [this](https://github.com/Abhijeet-AR/Competitive_Programming_Score_API) API by [Abhijeet-AR](https://github.com/Abhijeet-AR) for fetching user details.
+> This app is using [this](https://github.com/Abhijeet-AR/Competitive_Programming_Score_API) API by [Abhijeet-AR](https://github.com/Abhijeet-AR) for fetching user details. [CURRENTLY HAVING SOME PROBLEMS]
 
 ## 🖥 Deployed App
 
