@@ -13,8 +13,6 @@ export default function App() {
 	const [usersData, setUsersData] = useState([]); // Current Users Data.
 	const [isLoading, setIsLoading] = useState(true);
 
-	const [userFetched, setUserFetched] = useState([]); // Recently FETCHED User.
-
 	// To Control State Of Modal.
 	const [showModal, setShowModal] = useState({
 		visible: false,
@@ -46,9 +44,7 @@ export default function App() {
 				.then((data) => {
 					// console.log(data);
 					if (data.status === "success") {
-						setUserFetched({
-							...data.data,
-						});
+						setUsersData((old) => [...old, { ...data.data }]);
 					} else {
 						setShowModal((previous) => {
 							return {
@@ -78,14 +74,6 @@ export default function App() {
 			setUsers([]);
 		}
 	}, [fetchData]);
-
-	// Storing User Data After Fecthing.
-	useEffect(() => {
-		if (userFetched.length === 0) return;
-
-		setUsersData(() => [...usersData, userFetched]);
-		setUserFetched([]);
-	}, [userFetched, usersData]);
 
 	useEffect(() => {
 		if (users.length === usersData.length) {
