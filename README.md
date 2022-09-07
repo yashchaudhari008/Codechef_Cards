@@ -10,7 +10,7 @@ A WebApp to check friend's [codechef](https://www.codechef.com/) rating and othe
 2. Press delete to remove friend
 3. Make sure to ⭐ the repo and share with your friends.
 
-> This app is using [this](https://github.com/Abhijeet-AR/Competitive_Programming_Score_API) API by [Abhijeet-AR](https://github.com/Abhijeet-AR) for fetching user details.
+> This app is using [this](https://github.com/yashchaudhari008/codechef-cards-api) API for fetching user details.
 
 ## 🖥 Deployed App
 

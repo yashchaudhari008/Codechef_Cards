@@ -4,18 +4,20 @@ import { FaUserTimes } from "react-icons/fa";
 
 export default function Card({ user_data, setShowModal, removeUser }) {
 	const {
-		user_details,
+		name,
+		username,
 		stars,
 		rating,
-		highest_rating,
-		global_rank,
-		country_rank,
-		partially_solved,
-		fully_solved,
+		highestRating,
+		globalRank,
+		countryRank,
+		problemPartiallySolved,
+		problemFullySolved,
+		isActiveUser,
 	} = user_data;
 
 	// To Give Accent Color To Card.
-	const colorClass = `stars${stars[0]}`;
+	const colorClass = `stars${stars}`;
 
 	// To Toggle moreDetails Card State.
 	const [isMoreDetailsShown, setMoreDetailsShown] = useState(false);
@@ -45,26 +47,34 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 	}, [screenWidth]);
 
 	return (
-		<div className={`cardBox ${colorClass}`}>
+		<div className={`cardBox ${colorClass} ${!isActiveUser && "inactive"}`}>
 			<div className="cardDetails">
-				<h1>{user_details.name}</h1>
+				<h1>{name}</h1>
 				<a
-					class="cardUsername"
-					href={"https://codechef.com/users/" + user_details.username}
+					className="cardUsername"
+					href={"https://codechef.com/users/" + username}
 					target="_blank"
 					rel="noreferrer noopener"
 				>
-					({user_details.username})
+					({username})
 				</a>
 
 				<div className="cardRating">
 					<p>
-						{stars} | {rating}
+						{stars}★ | {rating}
 					</p>
 				</div>
 				<div className="cardHighestRating">
-					<h4>Highest Rating:</h4>
-					<p>{highest_rating}</p>
+					{isActiveUser ? (
+						<>
+							<h4>Highest Rating:</h4>
+							<p>{highestRating}</p>
+						</>
+					) : (
+						<>
+							<h4>Inactive User</h4>
+						</>
+					)}
 				</div>
 				<div>
 					<button
@@ -75,8 +85,8 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 									...previous,
 									visible: true,
 									type: "confirm",
-									msg: `Are you sure to delete '${user_details.username}'?`,
-									acceptFunc: () => removeUser(user_details.username),
+									msg: `Are you sure to delete '${username}'?`,
+									acceptFunc: () => removeUser(username),
 								};
 							});
 						}}
@@ -102,22 +112,22 @@ export default function Card({ user_data, setShowModal, removeUser }) {
 						<h1 className="wrapperHeading">Ranking</h1>
 						<div className="detailsItem">
 							<p>Global Rank:</p>
-							<p>{global_rank}</p>
+							<p>{globalRank || "Not Available"}</p>
 						</div>
 						<div className="detailsItem">
 							<p>Country Rank:</p>
-							<p>{country_rank}</p>
+							<p>{countryRank || "Not Available"}</p>
 						</div>
 					</div>
 					<div className="detailsItemWrapper">
 						<h1 className="wrapperHeading">Problem Solved</h1>
 						<div className="detailsItem">
 							<p>Fully:</p>
-							<p>{fully_solved.count}</p>
+							<p>{problemFullySolved}</p>
 						</div>
 						<div className="detailsItem">
 							<p>Partially:</p>
-							<p>{partially_solved.count}</p>
+							<p>{problemPartiallySolved}</p>
 						</div>
 					</div>
 				</div>

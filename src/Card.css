@@ -18,6 +18,9 @@
 
 	text-align: center;
 }
+.inactive {
+	filter: opacity(0.65);
+}
 .cardDetails {
 	--panelMaxWidth: 90%;
 

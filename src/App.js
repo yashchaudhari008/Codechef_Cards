@@ -7,7 +7,7 @@ import Modal from "./Modal";
 import Spinner from "./Spinner";
 
 export default function App() {
-	const api_url = "https://competitive-coding-api.herokuapp.com/api/codechef/";
+	const api_url = "https://codechef-cards-api.herokuapp.com/";
 
 	const [users, setUsers] = useState([]); // Current Users.
 	const [usersData, setUsersData] = useState([]); // Current Users Data.
@@ -26,7 +26,7 @@ export default function App() {
 	// To Remove User From 'users' And 'localStorage'.
 	const removeUser = useCallback((username) => {
 		setUsersData((usersData) =>
-			usersData.filter((data) => data.user_details.username !== username)
+			usersData.filter((data) => data.username !== username)
 		);
 		setUsers((users) => {
 			let users_temp = users.filter((user) => user !== username);
@@ -45,10 +45,9 @@ export default function App() {
 				})
 				.then((data) => {
 					// console.log(data);
-					if (data.status === "Success") {
+					if (data.status === "success") {
 						setUserFetched({
-							...data,
-							user_details: { ...data.user_details, username },
+							...data.data,
 						});
 					} else {
 						setShowModal((previous) => {
@@ -83,11 +82,6 @@ export default function App() {
 	// Storing User Data After Fecthing.
 	useEffect(() => {
 		if (userFetched.length === 0) return;
-		if (userFetched.rating === 0) {
-			userFetched.stars = "1★";
-			userFetched.global_rank = "Not Ranked!";
-			userFetched.country_rank = "Not Ranked!";
-		}
 
 		setUsersData(() => [...usersData, userFetched]);
 		setUserFetched([]);
@@ -119,7 +113,7 @@ export default function App() {
 						.map((user) => {
 							return (
 								<Card
-									key={user.user_details.username}
+									key={user.username}
 									user_data={user}
 									setShowModal={setShowModal}
 									removeUser={removeUser}

@@ -8,7 +8,7 @@ export default function AddUserMenu({
 	fetchData,
 	setShowModal,
 }) {
-	const [isOpen, setIsOpen] = useState(false); // To Control State Of Menu.
+	const [isOpen, setIsOpen] = useState(true); // To Control State Of Menu.
 	const usernameRef = useRef(null); // Reference To 'username' Input Element.
 
 	// Handling Submit.
@@ -67,6 +67,7 @@ export default function AddUserMenu({
 							type="text"
 							id="username"
 							name="username"
+							defaultValue={localStorage.getItem("usernames") ? "" : "mad_008"}
 							ref={usernameRef}
 						></input>
 					</div>
