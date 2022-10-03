@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+
+/*AddUserMenu*/
+.menuBox {
+	padding: 1rem;
+	margin-top: 0.5rem;
+	width: 80%;
+	max-width: var(--maxContentWidth); /* Global Var*/
+	border-radius: var(--borderRadius); /* Global Var*/
+	box-shadow: var(--defaultShadow); /* Global Var*/
+
+	background-color: var(--surfaceCardBack); /* Global Var*/
+	color: var(--surfaceCardText); /* Global Var*/
+
+	display: grid;
+	place-items: end;
+}
+.menuBtn {
+	padding: 0.45rem 0.65rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+	border: 0;
+	outline: 0;
+
+	background-color: var(--primary); /* Global Var*/
+	color: var(--primaryText); /* Global Var*/
+
+	display: inline-flex;
+	gap: 0.5rem;
+
+	font-size: 1.1rem;
+	font-weight: bold;
+	letter-spacing: normal;
+}
+.menuForm {
+	justify-self: stretch;
+	padding: 2rem 0rem;
+	margin: 0.8rem 0.1rem 0.1rem 0.1rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+
+	background-color: var(--surfaceCardTop); /* Global Var*/
+
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+	align-items: center;
+
+	font-size: 1.1rem;
+}
+#username {
+	margin: 0rem 0.5rem;
+	width: 100px;
+	padding: 8px;
+	outline: 0;
+	border: 2px solid var(--appBackground); /* Global Var*/
+	border-radius: var(--borderRadius); /* Global Var*/
+	background-color: var(--brighten); /* Global Var*/
+	color: white;
+
+	font-family: "Slabo 27px", serif;
+}
+
+.inputDiv {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.inputDiv label {
+	color: white; /* Global Var*/
+}
+
+@media (max-width: 750px) {
+	.menuBox {
+		width: 80%;
+	}
+	.inputDiv {
+		flex-direction: column;
+	}
+}

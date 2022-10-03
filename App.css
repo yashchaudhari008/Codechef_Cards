@@ -1,0 +1,18 @@
+.CardList {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+	margin-top: 40px;
+}
+
+@media (max-width: 2550px) {
+	.CardList {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 1350px) {
+	.CardList {
+		grid-template-columns: 1fr;
+	}
+}

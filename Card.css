@@ -1,0 +1,182 @@
+/* Card */
+.cardBox {
+	--accent: var(--primary);
+
+	margin-top: 1rem;
+	width: 80%;
+	max-width: var(--maxContentWidth); /* Global Var*/
+	border-radius: var(--borderRadius); /* Global Var*/
+	border: 2px solid var(--accent);
+	box-shadow: var(--defaultShadow); /* Global Var*/
+
+	background-color: var(--surfaceCardBack); /* Global Var*/
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 0.1rem;
+
+	text-align: center;
+}
+.inactive {
+	filter: opacity(0.65);
+}
+.cardDetails {
+	--panelMaxWidth: 90%;
+
+	padding: 0.8rem;
+	width: 250px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	justify-content: center;
+	align-items: center;
+}
+.cardDetails h1 {
+	color: var(--accent);
+	text-transform: capitalize;
+}
+
+.subtitleContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 0.2rem;
+}
+
+.flag {
+	padding: 0.2rem;
+	width: 3.1rem;
+	height: 1.8rem;
+}
+
+.cardUsername {
+	padding: 0.2rem 0.3rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+	color: var(--surfaceCardText); /* Global Var*/
+	text-decoration: none;
+	font-size: 1.8rem;
+	cursor: pointer;
+}
+.cardUsername:hover {
+	background-color: var(--accent);
+	color: black;
+}
+.cardRating {
+	padding: 0.2rem 0.5rem;
+	width: var(--panelMaxWidth);
+	border-radius: var(--borderRadius); /* Global Var*/
+
+	background-color: var(--accent);
+	color: white;
+
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.cardHighestRating {
+	padding: 0.5rem 0.5rem;
+	margin-top: 0.2rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+	width: var(--panelMaxWidth);
+
+	background-color: var(--surfaceCardTop); /* Global Var*/
+	color: var(--surfaceCardText); /* Global Var*/
+
+	display: flex;
+	justify-content: space-around;
+
+	text-align: center;
+}
+.cardHighestRating p {
+	color: var(--accent);
+
+	font-weight: bolder;
+}
+
+.btnContainer {
+	padding: 0.5rem;
+	width: var(--panelMaxWidth);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 0.5rem;
+}
+
+.cardBtn {
+	padding: 0.45rem 0.65rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--accent);
+
+	color: white;
+	display: inline-flex;
+	gap: 0.5rem;
+}
+/* Subcard */
+.moreDetails {
+	flex: 1;
+	min-width: 250px;
+	padding: 0.5rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	white-space: nowrap;
+}
+.detailsItemWrapper {
+	padding: 0.5rem 0.5rem;
+	margin: 0.2rem;
+	border-radius: var(--borderRadius) calc(var(--borderRadius) * 2); /* Global Var*/
+
+	background-color: var(--darken); /* Global Var*/
+}
+.wrapperHeading {
+	margin-left: 0.3rem;
+	margin-bottom: 0.5rem;
+	color: var(--accent);
+
+	font-size: 1.1rem;
+	text-align: start;
+}
+.detailsItem {
+	padding: 0.2rem 0.6rem;
+	margin: 0.2rem;
+	border-radius: var(--borderRadius); /* Global Var*/
+
+	color: var(--surfaceCardText); /* Global Var*/
+
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Accent Colours */
+.stars1 {
+	--accent: #e0e0e0 !important;
+}
+.stars2 {
+	--accent: #29d332 !important;
+}
+.stars3 {
+	--accent: #0055ff !important;
+}
+.stars4 {
+	--accent: #9900ff !important;
+}
+.stars5 {
+	--accent: #fbff04 !important;
+}
+.stars6 {
+	--accent: #ff8000 !important;
+}
+.stars7 {
+	--accent: #ff0022 !important;
+}

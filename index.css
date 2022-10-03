@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+
+:root {
+	--appBackground: rgb(25, 25, 25);
+
+	--headerBackground: rgb(0, 0, 0);
+	--headerText: rgb(255, 255, 255);
+
+	--primary: rgb(218, 218, 218);
+	--primaryText: rgb(10, 10, 10);
+
+	--surfaceCardBack: rgb(38, 38, 38);
+	--surfaceCardTop: rgb(55, 55, 55);
+	--surfaceCardText: rgb(230, 230, 230);
+
+	--darken: rgba(0, 0, 0, 0.2);
+	--brighten: rgba(255, 255, 255, 0.1);
+
+	--backDrop: rgba(0, 0, 0, 0.5);
+	--scrollbarHandle: rgba(255, 255, 255, 0.1);
+
+	--defaultShadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.3);
+	--borderRadius: 0.5rem;
+	--maxContentWidth: 550px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Slabo 27px", serif;
+	letter-spacing: 0.05rem;
+	cursor: default;
+}
+button,
+button * {
+	cursor: pointer;
+	letter-spacing: 0rem;
+
+	font-weight: bold;
+}
+html,
+body {
+	height: 100vh;
+}
+body {
+	background-color: var(--appBackground);
+	display: grid;
+
+	overflow: overlay;
+}
+.App {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+header {
+	padding: 0.8rem 1.5rem;
+	box-shadow: 0px 0px 8px 10px rgba(0, 0, 0, 0.2);
+
+	background-color: var(--headerBackground);
+	color: var(--headerText);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	font-size: 1.5rem;
+}
+footer {
+	padding: 0.5rem 1rem;
+
+	background-color: var(--headerBackground);
+	color: var(--headerText);
+
+	font-size: 0.8rem;
+	text-align: center;
+}
+.Content {
+	padding-bottom: 1rem;
+	flex: 1;
+	color: white;
+
+	display: grid;
+	place-items: start;
+	justify-items: center;
+}
+.CardList {
+	width: 100%;
+	display: grid;
+	justify-items: center;
+}
+
+.backDrop {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	background-color: var(--backDrop);
+
+	display: grid;
+	place-items: center;
+
+	user-select: none;
+}
+
+/* Scrollbar */
+/* Width */
+::-webkit-scrollbar {
+	width: 8px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: var(--borderRadius);
+
+	background: var(--scrollbarHandle);
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--primary);
+}
