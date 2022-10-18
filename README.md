@@ -4,8 +4,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/yashchaudhari008/Codechef_Cards)
 ![GitHub](https://img.shields.io/github/license/yashchaudhari008/Codechef_Cards)
 
-A WebApp to check friend's [codechef](https://www.codechef.com/) rating and other details.
-
 1. Just add username and track your friends progress!!
 2. Press delete to remove friend
 3. Make sure to ⭐ the repo and share with your friends.
@@ -15,6 +13,8 @@ A WebApp to check friend's [codechef](https://www.codechef.com/) rating and othe
 ## 🖥 Deployed App
 
 App is live on [`github-pages`](https://pages.github.com/) and is available at <https://yashchaudhari008.github.io/Codechef_Cards/>.
+
+<a href="https://www.producthunt.com/posts/codechef-cards?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-codechef&#0045;cards" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=363921&theme=dark" alt="Codechef&#0032;Cards - Track&#0032;your&#0032;Codechef&#0032;friends&#0032;easily | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ## 🏃‍ Runnning Locally
 
