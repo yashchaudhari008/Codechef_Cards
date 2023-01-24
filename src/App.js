@@ -7,7 +7,7 @@ import Modal from "./Modal";
 import Spinner from "./Spinner";
 
 export default function App() {
-	const api_url = "https://codechef-cards-api.herokuapp.com/";
+	const api_url = "https://codechef-cards-api.onrender.com/";
 
 	const [users, setUsers] = useState([]); // Current Users.
 	const [usersData, setUsersData] = useState([]); // Current Users Data.
