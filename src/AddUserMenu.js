@@ -8,7 +8,9 @@ export default function AddUserMenu({
 	fetchData,
 	setShowModal,
 }) {
-	const [isOpen, setIsOpen] = useState(localStorage.getItem("usernames") ? false : true); // To Control State Of Menu.
+	const [isOpen, setIsOpen] = useState(
+		localStorage.getItem("Codechef_Cards") ? false : true
+	); // To Control State Of Menu.
 	const usernameRef = useRef(null); // Reference To 'username' Input Element.
 
 	// Handling Submit.
@@ -43,8 +45,8 @@ export default function AddUserMenu({
 				users_temp.add(username);
 				setUsers(Array.from(users_temp));
 				localStorage.setItem(
-					"usernames",
-					JSON.stringify(Array.from(users_temp))
+					"Codechef_Cards",
+					JSON.stringify({ usernames: Array.from(users_temp) })
 				);
 				fetchData(username);
 			}
@@ -67,7 +69,9 @@ export default function AddUserMenu({
 							type="text"
 							id="username"
 							name="username"
-							defaultValue={localStorage.getItem("usernames") ? "" : "mad_008"}
+							defaultValue={
+								localStorage.getItem("Codechef_Cards") ? "" : "mad_008"
+							}
 							ref={usernameRef}
 						></input>
 					</div>

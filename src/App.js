@@ -28,7 +28,10 @@ export default function App() {
 		);
 		setUsers((users) => {
 			let users_temp = users.filter((user) => user !== username);
-			localStorage.setItem("usernames", JSON.stringify(users_temp));
+			localStorage.setItem(
+				"Codechef_Cards",
+				JSON.stringify({ usernames: users_temp })
+			);
 
 			return users_temp;
 		});
@@ -64,10 +67,10 @@ export default function App() {
 
 	// Loading Stored User And Fetching User Data. [RUNS ONLY ONCE]
 	useEffect(() => {
-		let user_temp = JSON.parse(localStorage.getItem("usernames"));
-		if (user_temp) {
-			setUsers(user_temp);
-			user_temp.forEach((username) => {
+		let user_temp = JSON.parse(localStorage.getItem("Codechef_Cards"));
+		if (user_temp && user_temp.usernames) {
+			setUsers(user_temp.usernames);
+			user_temp.usernames.forEach((username) => {
 				fetchData(username);
 			});
 		} else {
